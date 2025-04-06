@@ -1,0 +1,155 @@
+第1レベル
+
+デバイスid
+type
+time
+command
+param
+
+第2レベル(data)
+
+
+デバイスタイプ
+
+モノクロLED : MONO_LED
+光度(0～1.0)
+brightness
+
+モノクロ連結LED : MONO_CHAIN_LED
+LED番号0～n
+光度(0～1.0)
+num
+brightness
+
+カラーLED : COLOR_LED
+rgb(0～255)
+red, green, blue
+
+カラー連結LED : COLOR_CHAIN_LED
+LED番号0～n
+rgb(0～255)
+num
+red, green, blue
+
+
+デバイスタイプ
+MONO_LED
+MONO_CHAIN_LED
+COLOR_LED
+COLOR_CHAIN_LED
+
+
+
+#define LED_TYPE_MIN                200
+#define LED_TYPE_MAX                205
+#define LED_TYPE_MONO_LED           201
+#define LED_TYPE_MONO_CHAIN_LED     202
+#define LED_TYPE_COLOR_LED          203
+#define LED_TYPE_COLOR_CHAIN_LED    204
+
+#define LED_COMMAND_CLEAR               1
+#define LED_COMMAND_SET_BRIGHTNESS      2
+#define LED_COMMAND_SET_BRIGHTNESS_N    3
+#define LED_COMMAND_SET_RGB             4
+#define LED_COMMAND_SET_RGB_N           5
+
+
+コマンド
+set パラメータ
+clear パラメータなし
+
+JSON形式
+
+{
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: set,
+    paramSize: 1,
+    param: {
+        brightness: x
+    }
+}
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: set,
+    paramSize: 2,
+    param: [
+        [
+            num: i
+            brightness: x1
+        ],
+        [
+            num: j
+            brightness: x2
+        ]
+    ]
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: set,
+    paramSize: 1,
+    param: [
+        red: r,
+        green: g,
+        blue: b
+    ]
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: set,
+    paramSize: 2,
+    param: [
+        [
+            num: i,
+            red: r1,
+            green: g1,
+            blue: b1
+        ],
+        [
+            num: j,
+            red: r2,
+            green: g2,
+            blue: b2
+        ]
+    ]
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: clear
+    paramSize: 0
+]
+
+デバイスタイプと実デバイスとの対応関係
+MONO_LED
+・SIMPLE_MONO_LED
+・LED_CIRCULAR
+
+MONO_CHAIN_LED
+・LED_BAR
+
+COLOR_LED
+・SIMPLE_COLOR_LED
+
+COLOR_CHAIN_LED
+・P98X3_LED
+・NEO_PIXEL_LED
+
+
+
+
+
+
+

@@ -1,0 +1,357 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 1,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 2,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 3,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 4,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 5,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 6,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 7,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 8,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 9,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 10,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 11,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 12,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 13,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 14,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 15,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 16,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 17,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 18,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 19,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 20,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 21,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 22,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 123456789
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        num: 23,
+        brightness: 0.5
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 1
+    type: 202
+    time: 234567890
+    command: 1
+    paramSize: 0

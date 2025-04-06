@@ -1,0 +1,37 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 0
+    type: 1002
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        color: 54938
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 1002
+    time: 234567890
+    command: 2
+    paramSize: 1
+    param: [
+      {
+        x: 10,
+        y: 400,
+        foreground: 0xFFFF,
+        background: 0x03E0,
+        size: 5,
+        wrap: 0,
+        text: 'Hello, Kitty!'
+      }
+    ]

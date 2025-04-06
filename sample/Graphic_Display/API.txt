@@ -1,0 +1,135 @@
+機能は限定
+【描画機能】
+1) テキスト表記
+2) イメージ描画(bitmap等を表示)
+
+【イメージの置き場所】
+・マイクロSD上のファイル
+
+クリア
+void U8G2::clear(void)
+
+テキスト表記
+パラメータ - 座標x, 座標y，文字列，フォント種別, 描画方向
+
+void U8G2::setFont(const uint8_t *font)
+void U8G2::setFontDirection(uint8_t dir)
+u8g2_uint_t U8g2::drawUTF8(u8g2_uint_t x, u8g2_uint_t y, const char *s)    
+    u8g2.setFont(u8g2_font_unifont_t_symbols);
+    u8g2.drawUTF8(5, 20, "Snowman: ☃");
+
+
+イメージ描画
+パラメータ - 座標x, 座標y, イメージ幅(x) , イメージ高さ(y) , ファイル名 (, 描画モード , エンコード方式)
+void U8G2::drawXBM(u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8g2_uint_t h, const uint8_t *bitmap)
+void U8G2::setBitmapMode(uint8_t is_transparent)
+
+=============== カラーグラフィック =======================
+
+塗りつぶし
+virtual void 	fillScreen (uint16_t color)
+
+文字列描画
+void 	setTextColor (uint16_t c, uint16_t bg)
+void 	setCursor (int16_t x, int16_t y)
+void 	setTextWrap (bool w)
+void 	setTextSize (uint8_t s)
+void 	setTextSize (uint8_t sx, uint8_t sy)
+void 	setFont (const GFXfont *f=NULL)
+print()
+
+
+イメージ描画
+ファイル名
+座標(x,y)
+
+JRESULT TJpg_Decoder::getSdJpgSize(uint16_t *w, uint16_t *h, const char *pFilename) 
+JRESULT TJpg_Decoder::drawSdJpg(int32_t x, int32_t y, const char *pFilename)
+
+void 	drawRGBBitmap (int16_t x, int16_t y, const uint16_t bitmap[], int16_t w, int16_t h)
+void 	drawRGBBitmap (int16_t x, int16_t y, uint16_t *bitmap, int16_t w, int16_t h)
+void 	drawRGBBitmap (int16_t x, int16_t y, const uint16_t bitmap[], const uint8_t mask[], int16_t w, int16_t h)
+void 	drawRGBBitmap (int16_t x, int16_t y, uint16_t *bitmap, uint8_t *mask, int16_t w, int16_t h)
+
+#define DEVICE_CATEGORY_GRAPHIC_DISPLAY   10
+
+#define GRAPHIC_DISPLAY_TYPE_MIN            1000
+#define GRAPHIC_DISPLAY_TYPE_U8G2           1001
+#define GRAPHIC_DISPLAY_TYPE_GIGA_DISPLAY   1002
+#define GRAPHIC_DISPLAY_TYPE_BODMER_TFT     1003
+#define GRAPHIC_DISPLAY_TYPE_ADAFRUIT_GFX   1004
+#define GRAPHIC_DISPLAY_TYPE_MAX            1005
+
+#define GRAPHIC_DISPLAY_COMMAND_FILL    1
+#define GRAPHIC_DISPLAY_COMMAND_STRING  2
+#define GRAPHIC_DISPLAY_COMMAND_IMAGE   3
+
+
+#define TFT_BLACK       0x0000      /*   0,   0,   0 */
+#define TFT_NAVY        0x000F      /*   0,   0, 128 */
+#define TFT_DARKGREEN   0x03E0      /*   0, 128,   0 */
+#define TFT_DARKCYAN    0x03EF      /*   0, 128, 128 */
+#define TFT_MAROON      0x7800      /* 128,   0,   0 */
+#define TFT_PURPLE      0x780F      /* 128,   0, 128 */
+#define TFT_OLIVE       0x7BE0      /* 128, 128,   0 */
+#define TFT_LIGHTGREY   0xD69A      /* 211, 211, 211 */
+#define TFT_DARKGREY    0x7BEF      /* 128, 128, 128 */
+#define TFT_BLUE        0x001F      /*   0,   0, 255 */
+#define TFT_GREEN       0x07E0      /*   0, 255,   0 */
+#define TFT_CYAN        0x07FF      /*   0, 255, 255 */
+#define TFT_RED         0xF800      /* 255,   0,   0 */
+#define TFT_MAGENTA     0xF81F      /* 255,   0, 255 */
+#define TFT_YELLOW      0xFFE0      /* 255, 255,   0 */
+#define TFT_WHITE       0xFFFF      /* 255, 255, 255 */
+#define TFT_ORANGE      0xFDA0      /* 255, 180,   0 */
+#define TFT_GREENYELLOW 0xB7E0      /* 180, 255,   0 */
+#define TFT_PINK        0xFE19      /* 255, 192, 203 */ //Lighter pink, was 0xFC9F
+#define TFT_BROWN       0x9A60      /* 150,  75,   0 */
+#define TFT_GOLD        0xFEA0      /* 255, 215,   0 */
+#define TFT_SILVER      0xC618      /* 192, 192, 192 */
+#define TFT_SKYBLUE     0x867D      /* 135, 206, 235 */
+#define TFT_VIOLET      0x915C      /* 180,  46, 226 */
+
+clear : GRAPHIC_DISPLAY_COMMAND_FILL
+{
+    id : xxx,
+    type: GRAPHIC_DISPLAY_TYPE_GIGA_DISPLAY,
+    time: xxx,
+    command: 1,
+    paramSize: 1,
+    param: [
+        color: x // uint16_t
+    ]
+}
+
+string : GRAPHIC_DISPLAY_COMMAND_STRING
+{
+    id : xxx,
+    type: GRAPHIC_DISPLAY_TYPE_GIGA_DISPLAY,
+    time: xxx,
+    command: 2,
+    paramSize: 1,
+    param: [
+        x: x,  // int16_t
+        y: x,  // int16_t
+        foreground: x, // int16_t
+        background: x, // int16_t
+        size: x, // int8_t
+        wrap: x, // uint8_t 0,1
+        text: x // char *
+    ]
+}
+
+image : GRAPHIC_DISPLAY_COMMAND_IMAGE
+{
+    id : xxx,
+    type: GRAPHIC_DISPLAY_TYPE_GIGA_DISPLAY,
+    time: xxx,
+    command: 3,
+    paramSize: 1,
+    param: [
+        x: x,  // int16_t
+        y: x,  // int16_t
+        filename: x // char *
+    ]
+}

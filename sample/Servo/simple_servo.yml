@@ -1,0 +1,176 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 0
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 30
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 60
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 90
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 120
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 150
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 180
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 150
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 120
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 90
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 60
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 30
+      }
+    ]
+  - class : 'wait'
+    value : 2
+  - class : 'command'
+    id: 0
+    type: 501
+    time: 234567890
+    command: 1
+    paramSize: 1
+    param: [
+      {
+        angle: 0
+      }
+    ]
+
+

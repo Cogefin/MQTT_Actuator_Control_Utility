@@ -1,0 +1,80 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 0
+    type: 304
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 304
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        flag: 0
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 304
+    time: 234567890
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        text: "0123"
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 304
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        flag: 1
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 304
+    time: 234567890
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        text: "4567"
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 304
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 304
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        flag: 0
+      }
+    ]

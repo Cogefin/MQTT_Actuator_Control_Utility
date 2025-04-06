@@ -1,0 +1,111 @@
+
+
+#define CHARACTER_DISPLAY_TYPE_MIN                      100
+#define CHARACTER_DISPLAY_TYPE_MAX                      104
+#define CHARACTER_DISPLAY_TYPE_GROVE_LCD_RGB_BACKLIGHT  101
+#define CHARACTER_DISPLAY_TYPE_ACM1602NI                102
+#define CHARACTER_DISPLAY_TYPE_LIQUID_CRYSTAL           103
+
+#define CHARACTER_DISPLAY_COMMAND_CLEAR             1
+#define CHARACTER_DISPLAY_COMMAND_HOME              2
+#define CHARACTER_DISPLAY_COMMAND_SET_MODE          3
+#define CHARACTER_DISPLAY_COMMAND_SET_CURSUR        4
+#define CHARACTER_DISPLAY_COMMAND_SET_SIZE          5
+#define CHARACTER_DISPLAY_COMMAND_PRINT             6
+#define CHARACTER_DISPLAY_COMMAND_SET_BACKLIGHT_RGB 7
+
+#define CHARACTER_DISPLAY_MODE_NO_DISPLAY          1
+#define CHARACTER_DISPLAY_MODE_ON_DISPLAY          2
+#define CHARACTER_DISPLAY_MODE_NO_BLINK            3
+#define CHARACTER_DISPLAY_MODE_BLINK               4
+#define CHARACTER_DISPLAY_MODE_NO_CURSOR           5
+#define CHARACTER_DISPLAY_MODE_CURSOR              6
+#define CHARACTER_DISPLAY_MODE_SCROLL_LEFT         7
+#define CHARACTER_DISPLAY_MODE_SCROLL_RIGHT        8
+#define CHARACTER_DISPLAY_MODE_LEFT_TO_RIGHT       9
+#define CHARACTER_DISPLAY_MODE_RIGHT_TO_LEFT      10
+#define CHARACTER_DISPLAY_MODE_AUTO_SCROLL        11
+#define CHARACTER_DISPLAY_MODE_NO_AUTO_SCROLL     12
+#define CHARACTER_DISPLAY_MODE_BLINK_BACKLIGHT    13
+#define CHARACTER_DISPLAY_MODE_NO_BLINK_BACKLIGHT 14
+
+JSON形式
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: clear,
+    paramSize: 0
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: home,
+    paramSize: 0
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: setMode,
+    paramSize: 1,
+    param: [
+        mode: x
+    ]
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: print,
+    paramSize: 1,
+    param: [
+        text: xxxx
+    ]
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: setCursor,
+    paramSize: 1,
+    param: [
+        x: x,
+        y: x
+    ]
+]
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: setBacklightRGB,
+    paramSize: 1,
+    param: [
+        r: x,
+        g: x,
+        b: x
+    ]
+]
+
+
+[
+    id : xxx,
+    type: xxx,
+    time: xxx,
+    command: setSize,
+    paramSize: 1,
+    param: [
+        col: x,
+        row: x,
+        font: x
+    ]
+]
+
+

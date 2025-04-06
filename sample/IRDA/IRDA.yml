@@ -1,0 +1,430 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 10
+    paramSize: 1
+    param: [
+      {
+        header: 0,
+        data: 0,
+        repeats: 1,
+        bits: 0
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 11
+    paramSize: 1
+    param: [
+      {
+        header: 0,
+        data: 0,
+        repeats: 1,
+        bits: 0
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 20
+    paramSize: 1
+    param: [
+      {
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 30
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 31
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1,
+        flag: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 40
+    paramSize: 1
+    param: [
+      {
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 50
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 60
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 70
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 71
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 80
+    paramSize: 1
+    param: [
+      {
+        channel: 0,
+        command: 0,
+        mode: 0,
+        flag: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 81
+    paramSize: 1
+    param: [
+      {
+        data: 0,
+        channel: 0,
+        flag: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 90
+    paramSize: 1
+    param: [
+      {
+        wid: 0,
+        magnitude: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 100
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 101
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 102
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 103
+    paramSize: 1
+    param: [
+      {
+        did: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 110
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1,
+        flag: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 111
+    paramSize: 1
+    param: [
+      {
+        data: 1,
+        bits: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 112
+    paramSize: 1
+    param: [
+      {
+        data: 1,
+        bits: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 113
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1,
+        flag: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 114
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1,
+        customer: 1,
+        flag: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 120
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 121
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 122
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 130
+    paramSize: 1
+    param: [
+      {
+        address: 0,
+        command: 0,
+        repeats: 1,
+        bits: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 140
+    paramSize: 1
+    param: [
+      {
+        data: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 801
+    time: 234567890
+    command: 141
+    paramSize: 1
+    param: [
+      {
+        data: 1,
+        bits: 1
+      }
+    ]
+  - class : 'wait'
+    value : 10
+
+
