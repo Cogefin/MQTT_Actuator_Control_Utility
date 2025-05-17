@@ -1,0 +1,534 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import flet as ft
+import pyperclip
+import yaml
+
+
+help_file="Help/define_mqtt_sequence.yaml"
+
+helpPageName = 'top'
+
+lastView=""
+
+mqtt = {
+    'server':'192.168.11.252',
+    'port':1883,
+    'topic':'arduino/actuator'
+}
+
+command = {
+    'id' : 1,
+    'type' : 201,
+    'time' : 0,
+    'command' : 1,
+    'paramSize' : 0,
+    'param' : ''
+}
+
+character_display_Grove_RGB_backlight_command =[
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Home", key = 2),
+        ft.dropdown.Option(text = "Set mode", key = 3),
+        ft.dropdown.Option(text = "Set cursor", key = 4),
+        ft.dropdown.Option(text = "Set size", key = 5),
+        ft.dropdown.Option(text = "Print", key = 7),
+    ]
+character_display_Grove_RGB_backlight_command_label = "Grove character display RGB backlight command"
+
+character_display_command = [
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Home", key = 2),
+        ft.dropdown.Option(text = "Set mode", key = 3),
+        ft.dropdown.Option(text = "Set cursor", key = 4),
+        ft.dropdown.Option(text = "Set size", key = 5),
+        ft.dropdown.Option(text = "Set Backlight RGB", key = 6),
+        ft.dropdown.Option(text = "Print", key = 7),
+    ]
+character_display_command_label = "Character display command"
+
+mono_led_single_command = [
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Set brightness", key = 2),
+    ]
+mono_led_single_command_label = "Mono LED command"
+
+mono_led_chain_command =[
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Set brightness of No.x", key = 3),
+    ]
+mono_led_chain_command_label = "Mono chainable LED command"
+
+rgb_led_single_command =[
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Set RGB", key = 4),
+    ]
+rgb_led_single_command_label="RGB LED command"
+
+rgb_led_chain_command = [
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Set RGB of No.x", key = 5),
+    ]
+rgb_led_chain_command_label="RGB chainable LED command"
+
+nseg_led_grove_command =[
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Set blightness", key = 2),
+        ft.dropdown.Option(text = "Set colon", key = 3),
+        ft.dropdown.Option(text = "Setc", key = 5),
+    ]
+nseg_led_grove_command_label="N-seg LED command"
+
+nseg_led_command =[
+        ft.dropdown.Option(text = "Clear", key = 1),
+        ft.dropdown.Option(text = "Set", key = 4),
+    ]
+nseg_led_command_label="N-seg LED command"
+
+switch_simple_command =[
+        ft.dropdown.Option(text = "On", key = 1),
+        ft.dropdown.Option(text = "Off", key = 2),
+    ]
+switch_simple_command_label="Simple switch command"
+
+servo_command =[
+        ft.dropdown.Option(text = "Write", key = 1),
+        ft.dropdown.Option(text = "Write micro second", key = 2),
+    ]
+servo_command_label="Servo command"
+
+sound_simple_command =[
+        ft.dropdown.Option(text = "On", key = 1),
+        ft.dropdown.Option(text = "Off", key = 2),
+        ft.dropdown.Option(text = "Play", key = 3),
+    ]
+sound_simple_command_label="Speaker/buzzer command"
+
+pmw_command = [
+        ft.dropdown.Option(text = "Apply", key = 1),
+        ft.dropdown.Option(text = "Off", key = 2),
+        ft.dropdown.Option(text = "Set", key = 3),
+    ]
+pmw_command_label="PMW command"
+
+character_display_mode =[
+        ft.dropdown.Option(text = "Display off", key = 1),
+        ft.dropdown.Option(text = "Display on", key = 2),
+        ft.dropdown.Option(text = "Blink off", key = 3),
+        ft.dropdown.Option(text = "Blink on", key = 4),
+        ft.dropdown.Option(text = "Cursor off", key = 5),
+        ft.dropdown.Option(text = "Cursor on", key = 6),
+        ft.dropdown.Option(text = "Scroll left", key = 7),
+        ft.dropdown.Option(text = "Scroll right", key = 8),
+        ft.dropdown.Option(text = "Left to right", key = 9),
+        ft.dropdown.Option(text = "Right to left", key = 10),
+        ft.dropdown.Option(text = "Auto scroll on", key = 11),
+        ft.dropdown.Option(text = "Auto scroll off", key = 12),
+        ft.dropdown.Option(text = "Backlight blink on", key = 13),
+        ft.dropdown.Option(text = "Backlight blink off", key = 14),
+    ]
+character_display_mode_label="Character display mode"
+
+def selectCommandMenu(type):
+    if type == 101:
+        return character_display_Grove_RGB_backlight_command
+    if (type==102) or (type==103):
+        return character_display_command
+    if type == 201:
+        return mono_led_single_command
+    if type == 202:
+        return mono_led_chain_command
+    if type == 203:
+        return rgb_led_single_command
+    if type == 204:
+        return rgb_led_chain_command
+    if (type > 300) and (type < 304):
+        return nseg_led_command
+    if type == 304:
+        return nseg_led_grove_command
+    if type == 401:
+        return switch_simple_command
+    if type == 501:
+        return servo_command
+    if type == 601:
+        return sound_simple_command
+    return pmw_command
+
+def dumpMqtt(server, port, topic):
+    result = 'mqtt:\n' \
+           + '  server: \'' \
+           + server + '\'\n' \
+           + '  port: ' + str(port) + '\n' \
+           + '  topic: \'' + topic + '\'\n\n'
+    return result
+
+def dumpYAML_Mono_LED(data):
+    command = int(data['sequence'][0]['command'])
+    num_of_param = int(data['sequence'][0]['paramSize'])
+    result = 'sequence:\n' \
+           + '  - class: \'command\'\n' \
+           + '    id:' + data['sequence'][0]['id'] + '\n' \
+           + '    type:' + data['sequence'][0]['type'] + '\n' \
+           + '    time:' + data['sequence'][0]['time'] + '\n' \
+           + '    command:' + str(command) + '\n' \
+           + '    paramSize:' + str(num_of_param) + '\n'
+    if num_of_param != 0:
+        result = result + '    param: [\n' \
+           + '      ' + '{' + data['sequence'][0]['param'] + '}\n' \
+           + '    ]\n'
+
+def dumpYAML(data):
+    type = int(data['sequence'][0]['type'])
+    mqttInfo = dumpMqtt(data['mqtt']['server'], data['mqtt']['port'], data['mqtt']['topic'])
+    if type == 101:
+
+    if (type==102) or (type==103):
+
+    if type == 201:
+        return mqttInfo + dumpYAML_Mono_LED(data)
+    if type == 202:
+
+    if type == 203:
+
+    if type == 204:
+
+    if (type > 300) and (type < 304):
+
+    if type == 304:
+
+    if type == 401:
+
+    if type == 501:
+
+    if type == 601:
+
+    if type == 701:
+
+
+def loadHelp(helpFile):
+    global help
+    try:
+        with open(helpFile, mode='r', encoding='utf-8') as f:
+            help = yaml.safe_load(f)
+    except Exception as e:
+        return "Exception occurred while loading custom platform definition YAML file..."
+    return ""
+
+def errorWindow(page: ft.Page):
+    global error
+    page.title = "Error"
+    page.window_width = 400
+    page.window_height = 500
+    page.autoscroll = True
+    appBar = ft.AppBar(title=ft.Text("Error"),bgcolor=ft.colors.RED)
+    error_field = ft.Text(error)
+    line = ft.Divider(height=2, color="black")
+    finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window_destroy())
+    page.add(
+        appBar,
+        error_field,
+        line,
+        finish_button)
+
+def icon_clicked(e):
+    ft.app(target=helpWindow)
+
+def helpWindow(page: ft.Page):
+    global helpPageName, help
+    page.title = "Help"
+    page.window_width = 800
+    page.window_height = 500
+    page.autoscroll = True
+    help_contents = ft.Markdown(help[helpPageName], selectable=True, extension_set=ft.MarkdownExtensionSet.GITHUB_WEB)
+    page.add(help_contents)
+
+def mainWindow(page: ft.Page):
+    def create_view0():
+        global mqtt, command, help
+        def next_button_clicked(e):
+            global sendData, mqtt
+            mqtt['address'] = address.value
+            mqtt['port'] = port.value
+            mqtt['topic'] = topic.value
+            command['id'] = int(actuator_id.value)
+            command['time'] = int(actuator_time.value)
+            command['type'] = int(actuator_type.value)
+            command['command'] = int(actuator_command.value)
+            command['paramSize'] = int(num_of_params.value)
+            if 0!=command['paramSize']:
+                command['param'] = params.value
+            page.go("/view1")
+        def actuatorTypeChange(e):
+            type = int(actuator_type.value)
+            if type == 101:
+                actuator_command.options = character_display_Grove_RGB_backlight_command
+                actuator_command.label = character_display_Grove_RGB_backlight_command_label
+            if (type==102) or (type==103):
+                actuator_command.options = character_display_command
+                actuator_command.label = character_display_command_label
+            if type == 201:
+                actuator_command.options = mono_led_single_command
+                actuator_command.label = mono_led_single_command_label
+            if type == 202:
+                actuator_command.options = mono_led_chain_command
+                actuator_command.label = mono_led_chain_command_label
+            if type == 203:
+                actuator_command.options = rgb_led_single_command
+                actuator_command.label = rgb_led_single_command_label
+            if type == 204:
+                actuator_command.options = rgb_led_chain_command
+                actuator_command.label = rgb_led_chain_command_label
+            if (type > 300) and (type < 304):
+                actuator_command.options = nseg_led_grove_command
+                actuator_command.label = nseg_led_grove_command_label
+            if type == 304:
+                actuator_command.options = nseg_led_command
+                actuator_command.label = nseg_led_command_label
+            if type == 401:
+                actuator_command.options = switch_simple_command
+                actuator_command.label = switch_simple_command_label
+            if type == 501:
+                actuator_command.options = servo_command
+                actuator_command.label = servo_command_label
+            if type == 601:
+                actuator_command.options = sound_simple_command
+                actuator_command.label = sound_simple_command_label
+            if type == 701:
+                actuator_command.options = pmw_command
+                actuator_command.label = pmw_command_label
+            actuator_command.value = 1
+            page.update()
+        def commandChange(e):
+            type = int(actuator_type.value)
+            command = int(actuator_command.value)
+            if type == 201:
+                if command == 2:
+                    yamlData = { 'brightness': 1.0}
+                    num_of_params.value = 1
+                    params.value = yaml.dump(yamlData)
+                    page.update()
+                    return
+                else:
+                    num_of_params.value = 0
+                    params.value = ''
+                    page.update()
+                    return
+            elif type == 202:
+                if command == 3:
+                    yamlData = []
+                    yamlData[0] = { 'num': 1, 'brightness': 1.0}
+                    num_of_params.value = 1
+                    params.value = yaml.dump(yamlData)
+                    page.update()
+                    return
+                else:
+                    num_of_params.value = 0
+                    params.value = ''
+                    page.update()
+                    return
+            elif type == 203:
+                if command == 4:
+                    yamlData = { 'red': 255, 'green': 255, 'blue':255}
+                    num_of_params.value = 1
+                    params.value = yaml.dump(yamlData)
+                    page.update()
+                    return
+                else:
+                    num_of_params.value = 0
+                    params.value = ''
+                    page.update()
+                    return
+            elif type == 204:
+                if command == 5:
+                    yamlData = []
+                    yamlData[0] = { 'num': 1, 'red': 255, 'green': 255, 'blue':255}
+                    num_of_params.value = 1
+                    params.value = yaml.dump(yamlData)
+                    page.update()
+                    return
+                else:
+                    num_of_params.value = 0
+                    params.value = ''
+                    page.update()
+                    return
+        appBar = ft.AppBar(
+            title=ft.Text("MQTT設定編集"),
+            bgcolor=ft.colors.BLUE,
+            actions=[
+                ft.IconButton(icon = ft.icons.HELP_CENTER, on_click=icon_clicked),
+            ]
+        )
+        subtitle1 = ft.Text("MQTTブローカー", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        address = ft.TextField(label="IP address", value = mqtt['server'])
+        port = ft.TextField(label="port number", value = mqtt['port'] )
+        topic = ft.TextField(label="MQTT topic", value = mqtt['topic'] )
+        line = ft.Divider(height=2, color="black")
+        subtitle2 = ft.Text("アクチュエータコマンド定義", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        actuator_id = ft.TextField(label="Actuator ID", value = command['id'])
+        actuator_time = ft.TextField(label="Time", value = command['time'])
+        actuator_type = ft.Dropdown(
+            label="Actuator type",
+            on_change=actuatorTypeChange,
+            options=[
+                ft.dropdown.Option(text = "Grove LCD RGB Backlight", key = 101),
+                ft.dropdown.Option(text = "Character Display ACM1602NI", key = 102),
+                ft.dropdown.Option(text = "Character Display Liquid Crystal", key = 103),
+                ft.dropdown.Option(text = "Mono LED", key = 201),
+                ft.dropdown.Option(text = "Mono Chain LED", key = 202),
+                ft.dropdown.Option(text = "Anode/Cathod common LED", key = 203),
+                ft.dropdown.Option(text = "Grove chain RGB LED(P9813)", key = 204),
+                ft.dropdown.Option(text = "16-seg LED OSL12306", key = 301),
+                ft.dropdown.Option(text = "14-seg LED OSL20541", key = 302),
+                ft.dropdown.Option(text = "7-seg LED OSL30561", key = 303),
+                ft.dropdown.Option(text = "Grove 7-seg LED(TM1637)", key = 304),
+                ft.dropdown.Option(text = "Simple Digital/Switch", key = 401),
+                ft.dropdown.Option(text = "Servo", key = 501),
+                ft.dropdown.Option(text = "Simple Sound(Speaker/buzzer)", key = 601),
+                ft.dropdown.Option(text = "Simple PMW", key = 701),
+            ],
+            autofocus=True,)
+        actuator_type.value = command['type']
+        type = int(actuator_type.value)
+        actuator_command = ft.Dropdown(
+            label="dummy",
+            on_change=commandChange,
+            options=[
+                ft.dropdown.Option(text = "dummy", key = 101),
+            ],
+            autofocus=True,)
+        if type == 101:
+            actuator_command.options = character_display_Grove_RGB_backlight_command
+            actuator_command.label = character_display_Grove_RGB_backlight_command_label
+        if (type==102) or (type==103):
+            actuator_command.options = character_display_command
+            actuator_command.label = character_display_command_label
+        if type == 201:
+            actuator_command.options = mono_led_single_command
+            actuator_command.label = mono_led_single_command_label
+        if type == 202:
+            actuator_command.options = mono_led_chain_command
+            actuator_command.label = mono_led_chain_command_label
+        if type == 203:
+            actuator_command.options = rgb_led_single_command
+            actuator_command.label = rgb_led_single_command_label
+        if type == 204:
+            actuator_command.options = rgb_led_chain_command
+            actuator_command.label = rgb_led_chain_command_label
+        if (type > 300) and (type < 304):
+            actuator_command.options = nseg_led_grove_command
+            actuator_command.label = nseg_led_grove_command_label
+        if type == 304:
+            actuator_command.options = nseg_led_command
+            actuator_command.label = nseg_led_command_label
+        if type == 401:
+            actuator_command.options = switch_simple_command
+            actuator_command.label = switch_simple_command_label
+        if type == 501:
+            actuator_command.options = servo_command
+            actuator_command.label = servo_command_label
+        if type == 601:
+            actuator_command.options = sound_simple_command
+            actuator_command.label = sound_simple_command_label
+        if type == 701:
+            actuator_command.options = pmw_command
+            actuator_command.label = pmw_command_label
+        actuator_command.value = int(command['command'])
+        num_of_params = ft.TextField(label="number of parameters", value = command['paramSize'])
+        if 0==int(num_of_params.value):
+            params = ft.TextField(label="parameters", value = '')
+        else:
+            params = ft.TextField(multiline=True, label="parameters", value = str(command['param']))
+        subtitle3 = ft.Text("オプションパラメータ", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        next_button = ft.ElevatedButton(text="Next", on_click=next_button_clicked)
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window_destroy())
+        return ft.View("/view0", [
+            appBar,
+            subtitle1,
+            address,
+            port,
+            topic,
+            line,
+            subtitle2,
+            actuator_id,
+            actuator_time,
+            actuator_type,
+            actuator_command,
+            num_of_params,
+            line,
+            subtitle3,
+            params,
+            next_button,
+            finish_button
+        ])
+
+    def create_view1():
+        global mqtt, command, help, mqttConnectionMsg
+        appBar = ft.AppBar(
+            title=ft.Text("設定確認"),
+            bgcolor=ft.colors.BLUE,
+            actions=[
+                ft.IconButton(icon = ft.icons.HELP_CENTER, on_click=icon_clicked),
+            ]
+        )
+        subtitle = ft.Text("YAML形式データ", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        line = ft.Divider(height=2, color="black")
+        yamlData = {
+            'mqtt': {
+                'server': mqtt['server'] ,
+                'port': mqtt['port'],
+                'topic': mqtt['topic']
+            },
+            'sequence':
+                [
+                    {
+                        'class' : 'command',
+                        'id' : command['id'],
+                        'type' : command['type'],
+                        'time' : command['time'],
+                        'command' : command['command'],
+                        'paramSize' : command['paramSize'],
+                    }
+                ]
+        }
+        if 0!= command['paramSize']:
+            yamlData['sequence'][0]['param'] = command['param']
+        yamlStr = dumpYAML(yamlData)
+        outputStr = ft.TextField(multiline=True, value=yamlStr)
+        copy_button = ft.ElevatedButton(text="Copy", on_click=lambda e: pyperclip.copy(yaml.dump(yamlData)))
+        back_button = ft.ElevatedButton(text="Back", on_click=lambda e: page.go("/view0"))
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window_destroy())
+        return ft.View("/view1", [
+            appBar,
+            subtitle,
+            outputStr,
+            line,
+            copy_button,
+            back_button,
+            finish_button
+        ])
+
+    def route_change(handler):
+        global configuration, lastView
+        troute = ft.TemplateRoute(handler.route)
+        page.views.clear()
+        if troute.match("/view0"):
+            lastView="/view0"
+            page.views.append(create_view0())
+        if troute.match("/view1"):
+            lastView="/view1"
+            page.views.append(create_view1())
+        page.update()
+
+    page.on_route_change = route_change
+    page.go("/view0")
+
+
+if __name__ == '__main__':
+    error = loadHelp(help_file)
+    if error != "":
+        ft.app(target=errorWindow)
+    else:
+        ft.app(target=mainWindow)
+
+
