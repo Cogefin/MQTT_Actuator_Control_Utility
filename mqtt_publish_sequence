@@ -1,0 +1,271 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import flet as ft
+import os
+from paho.mqtt import client as mqtt_client
+import json
+from enum import Enum
+import yaml
+import random
+import time
+
+help_file="Help/mqtt_publish_sequence.yaml"
+
+helpPageName = 'top'
+
+input_file_name = ''
+
+mqttConnectionMsg = ''
+
+lastView=""
+
+def loadHelp(helpFile):
+    global help
+    try:
+        with open(helpFile, mode='r', encoding='utf-8') as f:
+            help = yaml.safe_load(f)
+    except Exception as e:
+        return "Exception occurred while loading custom platform definition YAML file..."
+    return ""
+
+def errorWindow(page: ft.Page):
+    global error
+    page.title = "Error"
+    page.window.width = 400
+    page.window.height = 500
+    page.autoscroll = True
+    appBar = ft.AppBar(title=ft.Text("Error"),bgcolor=ft.Colors.RED)
+    error_field = ft.Text(error)
+    line = ft.Divider(height=2, color="black")
+    finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
+    page.add(
+        appBar,
+        error_field,
+        line,
+        finish_button)
+
+def icon_clicked(e):
+    ft.app(target=helpWindow)
+
+def helpWindow(page: ft.Page):
+    global helpPageName, help
+    page.title = "Help"
+    page.window.width = 800
+    page.window.height = 500
+    page.autoscroll = True
+    help_contents = ft.Markdown(help[helpPageName], selectable=True, extension_set=ft.MarkdownExtensionSet.GITHUB_WEB)
+    page.add(help_contents)
+
+def loadMqttConfig(input_file_name):
+    global mqtt, sequence
+    with open(input_file_name, 'r' ) as yml:
+        config = yaml.safe_load(yml)
+    mqtt = config['mqtt']
+    sequence = config['sequence']
+
+def connect_mqtt(server, port):
+    global mqttConnectionMsg
+    def on_connect(client, userdata, flags, rc, properties):
+        if rc == 0:
+            mqttConnectionMsg = "Connected to MQTT Broker!"
+        else:
+            mqttConnectionMsg = "Failed to connect, return code = " + str(rc)
+    client_id = f'publish-{random.randint(0, 1000)}'
+    client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION2, client_id)
+    client.on_connect = on_connect
+    client.connect(server, port )
+    return client
+
+def publish(topic, client, msg):
+    msg_count = 1
+    while True:
+        time.sleep(1)
+        result = client.publish(topic, json.dumps(msg))
+        status = result[0]
+        if status == 0:
+            #client.disconnect()
+            return "success to publish msg"
+        msg_count += 1
+        if msg_count > 5:
+            return "Error : fail to publish msg"
+
+def mainWindow(page: ft.Page):
+    global input_file_name
+    def create_view0():
+        def pick_input_file_result(e: ft.FilePickerResultEvent):
+            global input_file_name
+            if e.files:
+                selected_input_file.value = e.files[0].path
+            else:
+                selected_input_file.value = "Canceled."
+            input_file_name = selected_input_file.value
+            selected_input_file.update()
+
+        def load_button_clicked(e):
+            global input_file_name
+            if (input_file_name=="") or (input_file_name=="Canceled."):
+                warning_message.value = "Please select input file."
+                warning_message.update()
+                return
+            loadMqttConfig(input_file_name)
+            page.go("/view1")
+
+        appBar = ft.AppBar(
+            title=ft.Text("送信データ定義ファイル選択"),
+            bgcolor=ft.Colors.BLUE,
+            actions=[
+                ft.IconButton(icon = ft.Icons.HELP_CENTER, on_click=icon_clicked),
+            ]
+        )
+        subtitle1 = ft.Text("definition file selection.", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        pick_input_file_dialog = ft.FilePicker(on_result=pick_input_file_result)
+        input_file_button = ft.ElevatedButton(
+            "definition file",
+            icon=ft.Icons.UPLOAD_FILE,
+            on_click=lambda _: pick_input_file_dialog.pick_files(
+                allow_multiple=False,
+            ),
+        )
+        selected_input_file = ft.Text()
+        line = ft.Divider(height=2, color="black")
+        page.title = "MQTTブローカーへのIoTアクチュエータ制御メッセージ送信"
+        page.window.width = 400
+        page.window.height = 500
+
+        page.overlay.append(pick_input_file_dialog)
+
+        load_button = ft.ElevatedButton(text="load definition", on_click=load_button_clicked)
+        warning_message = ft.Text()
+        row = ft.Row(
+            [
+                load_button,
+                warning_message,
+            ]
+        )
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
+        return ft.View("/view0", [
+            appBar,
+            subtitle1,
+            input_file_button,
+            selected_input_file,
+            line,
+            row,
+            finish_button
+        ])
+
+    def create_view1():
+        global sequence, mqtt, mqttConnectionMsg
+        def publish_button_clicked(e):
+            client = connect_mqtt(mqtt['server'], mqtt['port'])
+            mqtt_result.controls.append(ft.Text(mqttConnectionMsg))
+            #mqtt_result.value = mqttConnectionMsg
+            page.update()
+            client.loop_start()
+            for i in range(len(sequence)):
+                if 'wait' == sequence[i]['class']:
+                    sec = int(sequence[i]['value'])
+                    mqtt_result.controls.append(ft.Text("Action No." + str(i+1) + " : wait " + str(sec) + "(sec)",weight=ft.FontWeight.BOLD))
+                    #mqtt_result.value = mqtt_result.value + "Action No." + str(i+1) + " : wait " + str(sec) + "(sec)"  + "\n"
+                    page.update()
+                    time.sleep(sec)
+                elif 'command' == sequence[i]['class']:
+                    sendData = {}
+                    sendData['id'] = sequence[i]['id']
+                    sendData['type'] = sequence[i]['type']
+                    sendData['time'] = sequence[i]['time']
+                    sendData['command'] = sequence[i]['command']
+                    sendData['paramSize'] = sequence[i]['paramSize']
+                    if 0!=sendData['paramSize']:
+                        sendData['param'] = sequence[i]['param']
+                    commandStr = json.dumps(sendData)
+                    mqtt_result.controls.append(ft.Text("Action No." + str(i+1) + " : " + commandStr,weight=ft.FontWeight.BOLD))
+                    #mqtt_result.value = mqtt_result.value + "Action No." + str(i+1) + " : "
+                    page.update()
+                    result = publish(mqtt['topic'], client, sendData)
+                    mqtt_result.controls.append(ft.Text(result))
+                    #mqtt_result.value = mqtt_result.value + result + "\n"
+                    page.update()
+            client.loop_stop()
+            client.disconnect()
+        appBar = ft.AppBar(
+            title=ft.Text("MQTT設定確認"),
+            bgcolor=ft.Colors.BLUE,
+            actions=[
+                ft.IconButton(icon = ft.Icons.HELP_CENTER, on_click=icon_clicked),
+            ]
+        )
+        subtitle1 = ft.Text("MQTTブローカー", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        address = ft.Text( "IPアドレス : " + mqtt['server'])
+        port = ft.Text("ポート番号 : " + str(mqtt['port']))
+        topic = ft.Text("トピック : " + str(mqtt['topic']))
+        line = ft.Divider(height=2, color="black")
+        subtitle2 = ft.Text("実行シーケンス", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        lv = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
+        sequence_str = ""
+        for i in range(len(sequence)):
+            if sequence[i]['class'] == 'wait':
+                lv.controls.append(ft.Text('No.' + str(i+1) + ' : ' + 'wait ' + str(sequence[i]['value']) + 'sec',weight=ft.FontWeight.BOLD))
+                #sequence_str = sequence_str + 'No.' + str(i+1) + ' ' + 'wait ' + str(sequence[i]['value']) + 'sec\n'
+            elif sequence[i]['class'] == 'command':
+                jsonData = {
+                    'id': sequence[i]['id'],
+                    'type': sequence[i]['type'],
+                    'time': sequence[i]['time'],
+                    'command': sequence[i]['command'],
+                    'paramSize' : sequence[i]['paramSize']
+                }
+                if 0!= sequence[i]['paramSize']:
+                    jsonData['param'] = sequence[i]['param']
+                jsonStr = json.dumps(jsonData)
+                lv.controls.append(ft.Text('No.' + str(i+1) + ' : ' + 'send mqtt message',weight=ft.FontWeight.BOLD))
+                lv.controls.append(ft.Text(jsonStr))
+                #sequence_str = sequence_str + 'No.' + str(i+1) + ' ' + 'send mqtt message \n' + '    ' + jsonStr + '\n'
+        #mqtt_sequence_in_short = ft.Text(sequence_str)
+        subtitle3 = ft.Text("実行結果", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        mqtt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
+        #mqtt_result = ft.Text('')
+        publish_button = ft.ElevatedButton(text="MQTT publish", on_click=publish_button_clicked)
+        back_button = ft.ElevatedButton(text="Back", on_click=lambda e: page.go("/view0"))
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
+        return ft.View("/view1", [
+            appBar,
+            subtitle1,
+            address,
+            port,
+            topic,
+            line,
+            subtitle2,
+            #mqtt_sequence_in_short,
+            lv,
+            line,
+            subtitle3,
+            mqtt_result,
+            publish_button,
+            back_button,
+            finish_button
+        ])
+
+    def route_change(handler):
+        global configuration, lastView
+        troute = ft.TemplateRoute(handler.route)
+        page.views.clear()
+        if troute.match("/view0"):
+            lastView="/view0"
+            page.views.append(create_view0())
+        if troute.match("/view1"):
+            lastView="/view1"
+            page.views.append(create_view1())
+        page.update()
+
+    page.on_route_change = route_change
+    page.go("/view0")
+
+
+if __name__ == '__main__':
+    error = loadHelp(help_file)
+    if error != "":
+        ft.app(target=errorWindow)
+    else:
+        ft.app(target=mainWindow)
+
