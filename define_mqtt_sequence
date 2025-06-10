@@ -27,13 +27,16 @@ command = {
     'param' : ''
 }
 
+actuatorSelection = 0
+
 character_display_Grove_RGB_backlight_command =[
         ft.dropdown.Option(text = "Clear", key = 1),
         ft.dropdown.Option(text = "Home", key = 2),
         ft.dropdown.Option(text = "Set mode", key = 3),
         ft.dropdown.Option(text = "Set cursor", key = 4),
         ft.dropdown.Option(text = "Set size", key = 5),
-        ft.dropdown.Option(text = "Print", key = 7),
+        ft.dropdown.Option(text = "Print", key = 6),
+        ft.dropdown.Option(text = "Set Backlight RGB", key = 7),
     ]
 character_display_Grove_RGB_backlight_command_label = "Grove character display RGB backlight command"
 
@@ -43,8 +46,7 @@ character_display_command = [
         ft.dropdown.Option(text = "Set mode", key = 3),
         ft.dropdown.Option(text = "Set cursor", key = 4),
         ft.dropdown.Option(text = "Set size", key = 5),
-        ft.dropdown.Option(text = "Set Backlight RGB", key = 6),
-        ft.dropdown.Option(text = "Print", key = 7),
+        ft.dropdown.Option(text = "Print", key = 6),
     ]
 character_display_command_label = "Character display command"
 
@@ -112,23 +114,69 @@ pmw_command = [
     ]
 pmw_command_label="PMW command"
 
-character_display_mode =[
-        ft.dropdown.Option(text = "Display off", key = 1),
-        ft.dropdown.Option(text = "Display on", key = 2),
-        ft.dropdown.Option(text = "Blink off", key = 3),
-        ft.dropdown.Option(text = "Blink on", key = 4),
-        ft.dropdown.Option(text = "Cursor off", key = 5),
-        ft.dropdown.Option(text = "Cursor on", key = 6),
-        ft.dropdown.Option(text = "Scroll left", key = 7),
-        ft.dropdown.Option(text = "Scroll right", key = 8),
-        ft.dropdown.Option(text = "Left to right", key = 9),
-        ft.dropdown.Option(text = "Right to left", key = 10),
-        ft.dropdown.Option(text = "Auto scroll on", key = 11),
-        ft.dropdown.Option(text = "Auto scroll off", key = 12),
-        ft.dropdown.Option(text = "Backlight blink on", key = 13),
-        ft.dropdown.Option(text = "Backlight blink off", key = 14),
+irda_command = [
+        ft.dropdown.Option(text = "Bang Olufsen", key = 10),
+        ft.dropdown.Option(text = "Bang Olufsen Link", key = 11),
+        ft.dropdown.Option(text = "Bose Wave", key = 20),
+        ft.dropdown.Option(text = "Sharp", key = 30),
+        ft.dropdown.Option(text = "Denon", key = 31),
+        ft.dropdown.Option(text = "Fast", key = 40),
+        ft.dropdown.Option(text = "JVC", key = 50),
+        ft.dropdown.Option(text = "KaseiKyo", key = 60),
+        ft.dropdown.Option(text = "LG", key = 70),
+        ft.dropdown.Option(text = "LG 2", key = 71),
+        ft.dropdown.Option(text = "LEGO", key = 80),
+        ft.dropdown.Option(text = "LEGO 2", key = 81),
+        ft.dropdown.Option(text = "Magic Quest", key = 90),
+        ft.dropdown.Option(text = "NEC", key = 100),
+        ft.dropdown.Option(text = "NEC 2", key = 101),
+        ft.dropdown.Option(text = "ONKYO", key = 102),
+        ft.dropdown.Option(text = "Apple", key = 103),
+        ft.dropdown.Option(text = "RC5", key = 110),
+        ft.dropdown.Option(text = "RC6", key = 111),
+        ft.dropdown.Option(text = "RC6 2", key = 112),
+        ft.dropdown.Option(text = "RC6 3", key = 113),
+        ft.dropdown.Option(text = "RC6 A", key = 114),
+        ft.dropdown.Option(text = "Samsung", key = 120),
+        ft.dropdown.Option(text = "Samsung/LG", key = 121),
+        ft.dropdown.Option(text = "Samsung 48", key = 122),
+        ft.dropdown.Option(text = "Sony", key = 130),
+        ft.dropdown.Option(text = "DISH", key = 140),
     ]
-character_display_mode_label="Character display mode"
+irda_command_label="IRDA command"
+
+mp3_command = [
+        ft.dropdown.Option(text = "Stop", key = 1),
+        ft.dropdown.Option(text = "Next", key = 2),
+        ft.dropdown.Option(text = "Previous", key = 3),
+        ft.dropdown.Option(text = "Volume", key = 4),
+        ft.dropdown.Option(text = "Volume Up", key = 5),
+        ft.dropdown.Option(text = "Volume Down", key = 6),
+        ft.dropdown.Option(text = "Storage Selection", key = 7),
+        ft.dropdown.Option(text = "Pause", key = 8),
+        ft.dropdown.Option(text = "Start", key = 9),
+        ft.dropdown.Option(text = "Play by file index", key = 10),
+        ft.dropdown.Option(text = "Play by file name", key = 11),
+        ft.dropdown.Option(text = "Play by directory number", key = 12),
+        ft.dropdown.Option(text = "Play by directory name", key = 13),
+        ft.dropdown.Option(text = "Loop directory", key = 14),
+        ft.dropdown.Option(text = "Play MP3 directory", key = 15),
+        ft.dropdown.Option(text = "Cut in play", key = 16),
+        ft.dropdown.Option(text = "Set Equalizer", key = 17),
+    ]
+mp3_command_label="MP3 command"
+
+graphic_display_command = [
+        ft.dropdown.Option(text = "Fill", key = 1),
+        ft.dropdown.Option(text = "Print text", key = 2),
+        ft.dropdown.Option(text = "Put image file", key = 3),
+    ]
+graphic_display_command_label="Graphic display command"
+
+def defaultCommandNumber(type):
+    if type == 801:
+        return 10
+    return 1
 
 def selectCommandMenu(type):
     if type == 101:
@@ -153,58 +201,259 @@ def selectCommandMenu(type):
         return servo_command
     if type == 601:
         return sound_simple_command
-    return pmw_command
+    if type == 701:
+        return pmw_command
+    if type == 801:
+        return irda_command
+    if (type > 900) and (type < 905):
+        return mp3_command
+    return graphic_display_command
 
 def dumpMqtt(server, port, topic):
-    result = 'mqtt:\n' \
-           + '  server: \'' \
-           + server + '\'\n' \
-           + '  port: ' + str(port) + '\n' \
-           + '  topic: \'' + topic + '\'\n\n'
+    result =  'mqtt:\n' \
+            + '  server: \'' \
+            + server + '\'\n' \
+            + '  port: ' + str(port) + '\n' \
+            + '  topic: \'' + topic + '\'\n\n' \
+            + 'sequence:\n'
     return result
 
-def dumpYAML_Mono_LED(data):
-    command = int(data['sequence'][0]['command'])
-    num_of_param = int(data['sequence'][0]['paramSize'])
-    result = 'sequence:\n' \
-           + '  - class: \'command\'\n' \
-           + '    id:' + data['sequence'][0]['id'] + '\n' \
-           + '    type:' + data['sequence'][0]['type'] + '\n' \
-           + '    time:' + data['sequence'][0]['time'] + '\n' \
-           + '    command:' + str(command) + '\n' \
-           + '    paramSize:' + str(num_of_param) + '\n'
-    if num_of_param != 0:
+def dumpWait(duration):
+    result =  '  - class : \'wait\'\n' \
+            + '    value : ' + str(duration) + '\n'
+    return result
+
+def dumpCommandYaml(id, type, time, command, paramNum, param):
+    result =  '  - class: \'command\'\n' \
+            + '    id: ' + str(id) + '\n' \
+            + '    type: ' + str(type) + '\n' \
+            + '    time: ' + str(time) + '\n' \
+            + '    command: ' + str(command) + '\n' \
+            + '    paramSize: ' + str(paramNum) + '\n'
+    if int(paramNum) != 0:
         result = result + '    param: [\n' \
-           + '      ' + '{' + data['sequence'][0]['param'] + '}\n' \
-           + '    ]\n'
+            + '      ' +  param + '\n' \
+            + '    ]\n'
+    return result
 
-def dumpYAML(data):
-    type = int(data['sequence'][0]['type'])
-    mqttInfo = dumpMqtt(data['mqtt']['server'], data['mqtt']['port'], data['mqtt']['topic'])
-    if type == 101:
+def defaultCommandParamCharacterDisplay(type, command):
+    if command == 3: # setMode
+        num_of_params = 1
+        optionStr = "{ mode: 1 }"
+    elif command == 4: # setCursor
+        num_of_params = 1
+        optionStr ="{ x: 1, y: 1 }"
+    elif command == 5: # setSize
+        num_of_params = 1
+        optionStr = "{ col: 1, row: 2, font: 3  }"
+    elif command == 6: # print
+        num_of_params = 1
+        optionStr = "{ text: \'abcdef\' }"
+    elif command == 7: # setBacklightRGB
+        num_of_params = 1
+        optionStr = "{ red: 255, green: 255, blue: 255 }"
+    else:
+        num_of_params = 0
+        optionStr = ''
+    return [num_of_params, optionStr]
 
-    if (type==102) or (type==103):
-
+def defaultCommandParamLED(type, command):
     if type == 201:
-        return mqttInfo + dumpYAML_Mono_LED(data)
-    if type == 202:
+        if command == 2:
+            num_of_params = 1
+            optionStr = "{ brightness: 1.0}"
+        else:
+            num_of_params = 0
+            optionStr = ''
+    elif type == 202:
+        if command == 3:
+            num_of_params = 1
+            optionStr = "{ num: 1, brightness: 1.0}"
+        else:
+            num_of_params = 0
+            optionStr = ''
+    elif type == 203:
+        if command == 4:
+            num_of_params = 1
+            optionStr = "{ red: 255, green: 255, blue:255}"
+        else:
+            num_of_params = 0
+            optionStr = ''
+    elif type == 204:
+        if command == 5:
+            num_of_params = 1
+            optionStr = "{ num: 1, red: 255, green: 255, blue:255}"
+        else:
+            num_of_params = 0
+            optionStr = ''
+    return [num_of_params, optionStr]
 
-    if type == 203:
+def defaultCommandParamNSegLED(type, command):
+    if command == 2: # setBrightness
+        num_of_params = 1
+        optionStr = "{ brightness: 1.0 }"
+    elif command == 3: # setColon
+        num_of_params = 1
+        optionStr = "{ flag: 1 }"
+    elif command == 4: # set
+        num_of_params = 1
+        optionStr = "{ text: 8, period: 1 }"
+    elif command == 5: # setc
+        num_of_params = 1
+        optionStr = "{ text: \'0123\' }"
+    else:
+        num_of_params = 0
+        optionStr = ''
+    return [num_of_params, optionStr]
 
-    if type == 204:
+def defaultCommandParamSimpleDigital(type, command):
+    return [0, '']
 
-    if (type > 300) and (type < 304):
+def defaultCommandParamServo(type, command):
+    if command == 1: # write
+        num_of_params = 1
+        optionStr = "{ angle: 180 }"
+    else: # writeMS
+        num_of_params = 1
+        optionStr = "{ msec: 10 }"
+    return [num_of_params, optionStr]
 
-    if type == 304:
+def defaultCommandParamSimpleSound(type, command):
+    if command == 3: # play
+        num_of_params = 1
+        optionStr = "{ iteration: 7, bass: [1911, 1702, 1516, 1431, 1275, 1136, 1012], duration: [100, 100, 100, 100, 100, 100, 100], interval: [500, 500, 500, 500, 500, 500, 500]}"
+    else:
+        num_of_params = 0
+        optionStr = ''
+    return [num_of_params, optionStr]
 
-    if type == 401:
+def defaultCommandParamPMW(type, command):
+    if command == 3: # set
+        num_of_params = 1
+        optionStr = "{ value: 255 }"
+    else:
+        num_of_params = 0
+        optionStr = ''
+    return [num_of_params, optionStr]
 
-    if type == 501:
+def defaultCommandParamIRDA(type, command):
+    if (command == 10) or (command == 11): # IRDA_COMMAND_BANG_OLUFSEN || IRDA_COMMAND_BANG_OLUFSEN_LINK
+        num_of_params = 1
+        optionStr = "{ header: 1, data: 1, repeats: 1, bits:1 }"
+    elif (command == 20) or (command == 40): # IRDA_COMMAND_BOSE_WAVE || IRDA_COMMAND_FAST
+        num_of_params = 1
+        optionStr = "{ command: 1, repeats: 1 }"
+    elif (command == 30) or (command == 50) or (command == 70) or (command == 71) or  (command == 100) or (command == 101) or (command == 102)  or  (command == 120) or (command == 121) or (command == 122) : # IRDA_COMMAND_SHARP || IRDA_COMMAND_JVC || IRDA_COMMAND_LG || IRDA_COMMAND_LG_2 || IRDA_COMMAND_NEC ||  IRDA_COMMAND_NEC2 || IRDA_COMMAND_ONKYO || IRDA_COMMAND_SAMSUMG || IRDA_COMMAND_SAMSUMG_LG || IRDA_COMMAND_SAMSUMG_48
+        num_of_params = 1
+        optionStr = "{ address: 1, command: 1, repeats: 1 }"
+    elif (command == 31) or (command == 110) or (command == 113): # IRDA_COMMAND_DENON || IRDA_COMMAND_RC5 || IRDA_COMMAND_RC6_3
+        num_of_params = 1
+        optionStr = "{ address: 1, command: 1, repeats: 1, flag: 0 }"
+    elif (command == 60): # IRDA_COMMAND_KASEIKYO 
+        num_of_params = 1
+        optionStr = "{ address: 1, command: 1, repeats: 1, vendor: 8 }"
+    elif (command == 80): # IRDA_COMMAND_LEGO
+        num_of_params = 1
+        optionStr = "{ channel: 1, command: 1, repeats: 1, flag: 0 }"
+    elif (command == 81): # IRDA_COMMAND_LEGO2
+        num_of_params = 1
+        optionStr = "{ data: 1, channel: 1, flag: 0 }"
+    elif (command == 90): # IRDA_COMMAND_MAGIC_QUEST
+        num_of_params = 1
+        optionStr = "{ wid: 1, magnitude: 1 }"
+    elif (command == 103): # IRDA_COMMAND_APPLE
+        num_of_params = 1
+        optionStr = "{ did: 1, command: 1, repeats: 1 }"
+    elif (command == 111) or (command == 112) or (command == 141): # IRDA_COMMAND_RC6 || IRDA_COMMAND_RC6_2 || IRDA_COMMAND_WHYNTER
+        num_of_params = 1
+        optionStr = "{ data: 1, bits: 1 }"
+    elif (command == 114): # IRDA_COMMAND_RC6_A
+        num_of_params = 1
+        optionStr = "{ address: 1, command: 1, repeats: 1, customer:1, flag: 0 }"
+    elif (command == 130): # IRDA_COMMAND_SONY
+        num_of_params = 1
+        optionStr = "{ address: 1, command: 1, repeats: 1, bits: 1 }"
+    elif (command == 140): # IRDA_COMMAND_DISH
+        num_of_params = 1
+        optionStr = "{ data: 1 }"
+    else:
+        num_of_params = 0
+        optionStr = ''
+    return [num_of_params, optionStr]
 
-    if type == 601:
+def defaultCommandParamMP3(type, command):
+    if command == 4: # MP3_PLAYER_COMMAND_VOLUME
+        num_of_params = 1
+        optionStr = "{ vol: 10 }"
+    elif command == 7: # MP3_PLAYER_COMMAND_STORAGE
+        num_of_params = 1
+        optionStr = "{ storage: 1 }" # MP3_PLAYER_STORAGE_SD 1 , MP3_PLAYER_STORAGE_SPI 2, MP3_PLAYER_STORAGE_UDISK 3
+    elif command == 10: # MP3_PLAYER_COMMAND_PLAY_BY_INDEX
+        num_of_params = 1
+        optionStr = "{ index: 1, mode: 1 }" # mode : CYCLE - 1, SINGLE_CYCLE - 2 , DIR_CYCLE - 3 , RANDOM - 4 , SINGLE_SHOT - 5
+    elif command == 11: # MP3_PLAYER_COMMAND_PLAY_BY_NAME
+        num_of_params = 1
+        optionStr = "{ name: \'foo\', mode: 1 }" # mode : CYCLE - 1, SINGLE_CYCLE - 2 , DIR_CYCLE - 3 , RANDOM - 4 , SINGLE_SHOT - 5
+    elif command == 12: # MP3_PLAYER_COMMAND_PLAY_DIR_BY_NUM
+        num_of_params = 1
+        optionStr = "{ num: 1, file: 1, mode: 1 }" # mode : CYCLE - 1, SINGLE_CYCLE - 2 , DIR_CYCLE - 3 , RANDOM - 4 , SINGLE_SHOT - 5
+    elif command == 13: # MP3_PLAYER_COMMAND_PLAY_DIR_BY_NAME
+        num_of_params = 1
+        optionStr = "{ name: \'foo\', file: 1, mode: 1 }" # mode : CYCLE - 1, SINGLE_CYCLE - 2 , DIR_CYCLE - 3 , RANDOM - 4 , SINGLE_SHOT - 5
+    elif command == 14: # MP3_PLAYER_COMMAND_LOOP_DIR
+        num_of_params = 1
+        optionStr = "{ index: 10 }"
+    elif command == 15: # MP3_PLAYER_COMMAND_PLAY_MP3_DIR
+        num_of_params = 1
+        optionStr = "{ index: 10 }"
+    elif command == 16: # MP3_PLAYER_COMMAND_CUT_IN_PLAY
+        num_of_params = 1
+        optionStr = "{ storage: 1, index:1 }" # storage : MP3_PLAYER_STORAGE_SD 1 , MP3_PLAYER_STORAGE_SPI 2, MP3_PLAYER_STORAGE_UDISK 3
+    elif command == 17: # MP3_PLAYER_COMMAND_SET_EQ
+        num_of_params = 1
+        optionStr = "{ eq: 10 }"
+    else:
+        num_of_params = 0
+        optionStr = ''
+    return [num_of_params, optionStr]
 
-    if type == 701:
+def defaultCommandParamGraphicDisplay(type, command):
+    if command == 1: # GRAPHIC_DISPLAY_COMMAND_FILL
+        num_of_params = 1
+        optionStr = "{ color: 255 }"
+    elif command == 2: # GRAPHIC_DISPLAY_COMMAND_STRING
+        num_of_params = 1
+        optionStr = "{ x: 1, y: 1, foreground: 1, background: 1, size: 10, wrap: 0, text: \'abcde\' }" # wrap: true(1)/false(0)
+    elif command == 3: # GRAPHIC_DISPLAY_COMMAND_IMAGE
+        num_of_params = 1
+        optionStr = "{ x: 1, y: 1, filename: \'abcde\' }"
+    else:
+        num_of_params = 0
+        optionStr = ''
+    return [num_of_params, optionStr]
 
+def defaultCommandParam(type, command):
+    if (type > 100) and (type < 200):
+        return defaultCommandParamCharacterDisplay(type, command)
+    elif (type > 200) and (type < 300):
+        return defaultCommandParamLED(type, command)
+    elif (type > 300) and (type < 400):
+        return defaultCommandParamNSegLED(type, command)
+    elif (type > 400) and (type < 500):
+        return defaultCommandParamSimpleDigital(type, command)
+    elif (type > 500) and (type < 600):
+        return defaultCommandParamServo(type, command)
+    elif (type > 600) and (type < 700):
+        return defaultCommandParamSimpleSound(type, command)
+    elif (type > 700) and (type < 800):
+        return defaultCommandParamPMW(type, command)
+    elif (type > 800) and (type < 900):
+        return defaultCommandParamIRDA(type, command)
+    elif (type > 900) and (type < 1000):
+        return defaultCommandParamMP3(type, command)
+    elif (type > 1000) and (type < 1100):
+        return defaultCommandParamGraphicDisplay(type, command)
+    return [0, '']
 
 def loadHelp(helpFile):
     global help
@@ -218,13 +467,13 @@ def loadHelp(helpFile):
 def errorWindow(page: ft.Page):
     global error
     page.title = "Error"
-    page.window_width = 400
-    page.window_height = 500
+    page.window.width = 400
+    page.window.height = 500
     page.autoscroll = True
-    appBar = ft.AppBar(title=ft.Text("Error"),bgcolor=ft.colors.RED)
+    appBar = ft.AppBar(title=ft.Text("Error"),bgcolor=ft.Colors.RED)
     error_field = ft.Text(error)
     line = ft.Divider(height=2, color="black")
-    finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window_destroy())
+    finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
     page.add(
         appBar,
         error_field,
@@ -237,126 +486,28 @@ def icon_clicked(e):
 def helpWindow(page: ft.Page):
     global helpPageName, help
     page.title = "Help"
-    page.window_width = 800
-    page.window_height = 500
+    page.window.width = 800
+    page.window.height = 500
     page.autoscroll = True
     help_contents = ft.Markdown(help[helpPageName], selectable=True, extension_set=ft.MarkdownExtensionSet.GITHUB_WEB)
     page.add(help_contents)
 
 def mainWindow(page: ft.Page):
     def create_view0():
-        global mqtt, command, help
+        global mqtt, help
         def next_button_clicked(e):
-            global sendData, mqtt
-            mqtt['address'] = address.value
-            mqtt['port'] = port.value
-            mqtt['topic'] = topic.value
-            command['id'] = int(actuator_id.value)
-            command['time'] = int(actuator_time.value)
-            command['type'] = int(actuator_type.value)
-            command['command'] = int(actuator_command.value)
-            command['paramSize'] = int(num_of_params.value)
-            if 0!=command['paramSize']:
-                command['param'] = params.value
-            page.go("/view1")
-        def actuatorTypeChange(e):
-            type = int(actuator_type.value)
-            if type == 101:
-                actuator_command.options = character_display_Grove_RGB_backlight_command
-                actuator_command.label = character_display_Grove_RGB_backlight_command_label
-            if (type==102) or (type==103):
-                actuator_command.options = character_display_command
-                actuator_command.label = character_display_command_label
-            if type == 201:
-                actuator_command.options = mono_led_single_command
-                actuator_command.label = mono_led_single_command_label
-            if type == 202:
-                actuator_command.options = mono_led_chain_command
-                actuator_command.label = mono_led_chain_command_label
-            if type == 203:
-                actuator_command.options = rgb_led_single_command
-                actuator_command.label = rgb_led_single_command_label
-            if type == 204:
-                actuator_command.options = rgb_led_chain_command
-                actuator_command.label = rgb_led_chain_command_label
-            if (type > 300) and (type < 304):
-                actuator_command.options = nseg_led_grove_command
-                actuator_command.label = nseg_led_grove_command_label
-            if type == 304:
-                actuator_command.options = nseg_led_command
-                actuator_command.label = nseg_led_command_label
-            if type == 401:
-                actuator_command.options = switch_simple_command
-                actuator_command.label = switch_simple_command_label
-            if type == 501:
-                actuator_command.options = servo_command
-                actuator_command.label = servo_command_label
-            if type == 601:
-                actuator_command.options = sound_simple_command
-                actuator_command.label = sound_simple_command_label
-            if type == 701:
-                actuator_command.options = pmw_command
-                actuator_command.label = pmw_command_label
-            actuator_command.value = 1
-            page.update()
-        def commandChange(e):
-            type = int(actuator_type.value)
-            command = int(actuator_command.value)
-            if type == 201:
-                if command == 2:
-                    yamlData = { 'brightness': 1.0}
-                    num_of_params.value = 1
-                    params.value = yaml.dump(yamlData)
-                    page.update()
-                    return
-                else:
-                    num_of_params.value = 0
-                    params.value = ''
-                    page.update()
-                    return
-            elif type == 202:
-                if command == 3:
-                    yamlData = []
-                    yamlData[0] = { 'num': 1, 'brightness': 1.0}
-                    num_of_params.value = 1
-                    params.value = yaml.dump(yamlData)
-                    page.update()
-                    return
-                else:
-                    num_of_params.value = 0
-                    params.value = ''
-                    page.update()
-                    return
-            elif type == 203:
-                if command == 4:
-                    yamlData = { 'red': 255, 'green': 255, 'blue':255}
-                    num_of_params.value = 1
-                    params.value = yaml.dump(yamlData)
-                    page.update()
-                    return
-                else:
-                    num_of_params.value = 0
-                    params.value = ''
-                    page.update()
-                    return
-            elif type == 204:
-                if command == 5:
-                    yamlData = []
-                    yamlData[0] = { 'num': 1, 'red': 255, 'green': 255, 'blue':255}
-                    num_of_params.value = 1
-                    params.value = yaml.dump(yamlData)
-                    page.update()
-                    return
-                else:
-                    num_of_params.value = 0
-                    params.value = ''
-                    page.update()
-                    return
+            global mqtt, actuatorSelection, yamlData
+            yamlData = dumpMqtt(address.value, port.value, topic.value)
+            actuatorSelection = int(actuator_type.value)
+            if actuatorSelection == 1:
+                page.go("/view2")
+            else:
+                page.go("/view3")
         appBar = ft.AppBar(
-            title=ft.Text("MQTT設定編集"),
-            bgcolor=ft.colors.BLUE,
+            title=ft.Text("MQTT設定および，アクチュエータ/待機コマンド選択"),
+            bgcolor=ft.Colors.BLUE,
             actions=[
-                ft.IconButton(icon = ft.icons.HELP_CENTER, on_click=icon_clicked),
+                ft.IconButton(icon = ft.Icons.HELP_CENTER, on_click=icon_clicked),
             ]
         )
         subtitle1 = ft.Text("MQTTブローカー", style=ft.TextThemeStyle.TITLE_MEDIUM)
@@ -364,13 +515,11 @@ def mainWindow(page: ft.Page):
         port = ft.TextField(label="port number", value = mqtt['port'] )
         topic = ft.TextField(label="MQTT topic", value = mqtt['topic'] )
         line = ft.Divider(height=2, color="black")
-        subtitle2 = ft.Text("アクチュエータコマンド定義", style=ft.TextThemeStyle.TITLE_MEDIUM)
-        actuator_id = ft.TextField(label="Actuator ID", value = command['id'])
-        actuator_time = ft.TextField(label="Time", value = command['time'])
+        subtitle2 = ft.Text("アクチュエータ/待機コマンド選択", style=ft.TextThemeStyle.TITLE_MEDIUM)
         actuator_type = ft.Dropdown(
-            label="Actuator type",
-            on_change=actuatorTypeChange,
+            label="Actuator type or wait command",
             options=[
+                ft.dropdown.Option(text = "Wait command", key = 1),
                 ft.dropdown.Option(text = "Grove LCD RGB Backlight", key = 101),
                 ft.dropdown.Option(text = "Character Display ACM1602NI", key = 102),
                 ft.dropdown.Option(text = "Character Display Liquid Crystal", key = 103),
@@ -386,62 +535,20 @@ def mainWindow(page: ft.Page):
                 ft.dropdown.Option(text = "Servo", key = 501),
                 ft.dropdown.Option(text = "Simple Sound(Speaker/buzzer)", key = 601),
                 ft.dropdown.Option(text = "Simple PMW", key = 701),
+                ft.dropdown.Option(text = "IR remote", key = 801),
+                ft.dropdown.Option(text = "Grove - MP3 v2.0", key = 901),
+                ft.dropdown.Option(text = "Grove - MP3 v3.0", key = 902),
+                ft.dropdown.Option(text = "Grove - MP3 v4.0", key = 903),
+                ft.dropdown.Option(text = "DFPlayer - A Mini MP3 Player", key = 904),
+                ft.dropdown.Option(text = "U8g2 Graphic", key = 1001),
+                ft.dropdown.Option(text = "Arduino GIGA Display Shield", key = 1002),
+                ft.dropdown.Option(text = "TFT_eSPI Graphic", key = 1003),
+                ft.dropdown.Option(text = "Adafruit GFX", key = 1004),
             ],
             autofocus=True,)
-        actuator_type.value = command['type']
-        type = int(actuator_type.value)
-        actuator_command = ft.Dropdown(
-            label="dummy",
-            on_change=commandChange,
-            options=[
-                ft.dropdown.Option(text = "dummy", key = 101),
-            ],
-            autofocus=True,)
-        if type == 101:
-            actuator_command.options = character_display_Grove_RGB_backlight_command
-            actuator_command.label = character_display_Grove_RGB_backlight_command_label
-        if (type==102) or (type==103):
-            actuator_command.options = character_display_command
-            actuator_command.label = character_display_command_label
-        if type == 201:
-            actuator_command.options = mono_led_single_command
-            actuator_command.label = mono_led_single_command_label
-        if type == 202:
-            actuator_command.options = mono_led_chain_command
-            actuator_command.label = mono_led_chain_command_label
-        if type == 203:
-            actuator_command.options = rgb_led_single_command
-            actuator_command.label = rgb_led_single_command_label
-        if type == 204:
-            actuator_command.options = rgb_led_chain_command
-            actuator_command.label = rgb_led_chain_command_label
-        if (type > 300) and (type < 304):
-            actuator_command.options = nseg_led_grove_command
-            actuator_command.label = nseg_led_grove_command_label
-        if type == 304:
-            actuator_command.options = nseg_led_command
-            actuator_command.label = nseg_led_command_label
-        if type == 401:
-            actuator_command.options = switch_simple_command
-            actuator_command.label = switch_simple_command_label
-        if type == 501:
-            actuator_command.options = servo_command
-            actuator_command.label = servo_command_label
-        if type == 601:
-            actuator_command.options = sound_simple_command
-            actuator_command.label = sound_simple_command_label
-        if type == 701:
-            actuator_command.options = pmw_command
-            actuator_command.label = pmw_command_label
-        actuator_command.value = int(command['command'])
-        num_of_params = ft.TextField(label="number of parameters", value = command['paramSize'])
-        if 0==int(num_of_params.value):
-            params = ft.TextField(label="parameters", value = '')
-        else:
-            params = ft.TextField(multiline=True, label="parameters", value = str(command['param']))
-        subtitle3 = ft.Text("オプションパラメータ", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        actuator_type.value = 1
         next_button = ft.ElevatedButton(text="Next", on_click=next_button_clicked)
-        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window_destroy())
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
         return ft.View("/view0", [
             appBar,
             subtitle1,
@@ -450,66 +557,222 @@ def mainWindow(page: ft.Page):
             topic,
             line,
             subtitle2,
-            actuator_id,
-            actuator_time,
             actuator_type,
-            actuator_command,
-            num_of_params,
             line,
-            subtitle3,
-            params,
             next_button,
             finish_button
         ])
 
     def create_view1():
-        global mqtt, command, help, mqttConnectionMsg
+        global help, yamlData
+        def next_button_clicked(e):
+            global yamlData, actuatorSelection
+            actuatorSelection = int(actuator_type.value)
+            if actuatorSelection == 1:
+                page.go("/view2")
+            else:
+                page.go("/view3")
         appBar = ft.AppBar(
-            title=ft.Text("設定確認"),
-            bgcolor=ft.colors.BLUE,
+            title=ft.Text("アクチュエータ/待機コマンド選択"),
+            bgcolor=ft.Colors.BLUE,
             actions=[
-                ft.IconButton(icon = ft.icons.HELP_CENTER, on_click=icon_clicked),
+                ft.IconButton(icon = ft.Icons.HELP_CENTER, on_click=icon_clicked),
             ]
         )
         subtitle = ft.Text("YAML形式データ", style=ft.TextThemeStyle.TITLE_MEDIUM)
         line = ft.Divider(height=2, color="black")
-        yamlData = {
-            'mqtt': {
-                'server': mqtt['server'] ,
-                'port': mqtt['port'],
-                'topic': mqtt['topic']
-            },
-            'sequence':
-                [
-                    {
-                        'class' : 'command',
-                        'id' : command['id'],
-                        'type' : command['type'],
-                        'time' : command['time'],
-                        'command' : command['command'],
-                        'paramSize' : command['paramSize'],
-                    }
-                ]
-        }
-        if 0!= command['paramSize']:
-            yamlData['sequence'][0]['param'] = command['param']
-        yamlStr = dumpYAML(yamlData)
-        outputStr = ft.TextField(multiline=True, value=yamlStr)
-        copy_button = ft.ElevatedButton(text="Copy", on_click=lambda e: pyperclip.copy(yaml.dump(yamlData)))
-        back_button = ft.ElevatedButton(text="Back", on_click=lambda e: page.go("/view0"))
-        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window_destroy())
+        outputStr = ft.TextField(multiline=True, value=yamlData)
+        cl = ft.Column(spacing=10, height=200, width=750, scroll=ft.ScrollMode.ALWAYS, on_scroll_interval=0, expand=True)
+        cl.controls.append(outputStr)
+        subtitle2 = ft.Text("アクチュエータ/待機コマンド選択", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        actuator_type = ft.Dropdown(
+            label="Actuator type or wait command",
+            options=[
+                ft.dropdown.Option(text = "Wait command", key = 1),
+                ft.dropdown.Option(text = "Grove LCD RGB Backlight", key = 101),
+                ft.dropdown.Option(text = "Character Display ACM1602NI", key = 102),
+                ft.dropdown.Option(text = "Character Display Liquid Crystal", key = 103),
+                ft.dropdown.Option(text = "Mono LED", key = 201),
+                ft.dropdown.Option(text = "Mono Chain LED", key = 202),
+                ft.dropdown.Option(text = "Anode/Cathod common LED", key = 203),
+                ft.dropdown.Option(text = "Grove chain RGB LED(P9813)", key = 204),
+                ft.dropdown.Option(text = "16-seg LED OSL12306", key = 301),
+                ft.dropdown.Option(text = "14-seg LED OSL20541", key = 302),
+                ft.dropdown.Option(text = "7-seg LED OSL30561", key = 303),
+                ft.dropdown.Option(text = "Grove 7-seg LED(TM1637)", key = 304),
+                ft.dropdown.Option(text = "Simple Digital/Switch", key = 401),
+                ft.dropdown.Option(text = "Servo", key = 501),
+                ft.dropdown.Option(text = "Simple Sound(Speaker/buzzer)", key = 601),
+                ft.dropdown.Option(text = "Simple PMW", key = 701),
+                ft.dropdown.Option(text = "IR remote", key = 801),
+                ft.dropdown.Option(text = "Grove - MP3 v2.0", key = 901),
+                ft.dropdown.Option(text = "Grove - MP3 v3.0", key = 902),
+                ft.dropdown.Option(text = "Grove - MP3 v4.0", key = 903),
+                ft.dropdown.Option(text = "DFPlayer - A Mini MP3 Player", key = 904),
+                ft.dropdown.Option(text = "U8g2 Graphic", key = 1001),
+                ft.dropdown.Option(text = "Arduino GIGA Display Shield", key = 1002),
+                ft.dropdown.Option(text = "TFT_eSPI Graphic", key = 1003),
+                ft.dropdown.Option(text = "Adafruit GFX", key = 1004),
+            ],
+            autofocus=True,)
+        actuator_type.value = 1
+        copy_button = ft.ElevatedButton(text="Copy", on_click=lambda e: pyperclip.copy(outputStr.value))
+        next_button = ft.ElevatedButton(text="Next", on_click=next_button_clicked)
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
         return ft.View("/view1", [
             appBar,
             subtitle,
-            outputStr,
+            cl,
+            line,
+            subtitle2,
+            actuator_type,
+            copy_button,
+            next_button,
+            finish_button
+        ])
+
+    def create_view2():
+        global help, yamlData
+        def next_button_clicked(e):
+            global yamlData
+            yamlData = yamlData + dumpWait(int(waitTime.value))
+            outputStr.value = yamlData
+            page.go("/view1")
+        appBar = ft.AppBar(
+            title=ft.Text("待機時間設定"),
+            bgcolor=ft.Colors.BLUE,
+            actions=[
+                ft.IconButton(icon = ft.Icons.HELP_CENTER, on_click=icon_clicked),
+            ]
+        )
+        subtitle = ft.Text("YAML形式データ", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        line = ft.Divider(height=2, color="black")
+        outputStr = ft.TextField(multiline=True, value=yamlData)
+        cl = ft.Column(spacing=10, height=200, width=750, scroll=ft.ScrollMode.ALWAYS, on_scroll_interval=0, expand=True)
+        cl.controls.append(outputStr)
+        waitTime = ft.TextField(label="Wait time(sec)", value = 1 )
+        copy_button = ft.ElevatedButton(text="Copy", on_click=lambda e: pyperclip.copy(outputStr.value))
+        next_button = ft.ElevatedButton(text="Next", on_click=next_button_clicked)
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
+        return ft.View("/view2", [
+            appBar,
+            subtitle,
+            cl,
+            line,
+            waitTime,
             line,
             copy_button,
-            back_button,
+            next_button,
+            finish_button
+        ])
+
+    def create_view3():
+        global yamlData, actuatorSelection
+        def next_button_clicked(e):
+            global yamlData, actuatorSelection
+            yamlData = yamlData + dumpCommandYaml(actuator_id.value, actuatorSelection, actuator_time.value, actuator_command.value, num_of_params.value, params.value)
+            outputStr.value = yamlData
+            page.go("/view1")
+        def commandChange(e):
+            global actuatorSelection
+            command = int(actuator_command.value)
+            [num_of_params.value, params.value] = defaultCommandParam(actuatorSelection, command)
+            page.update()
+        appBar = ft.AppBar(
+            title=ft.Text("アクチュエータコマンド設定"),
+            bgcolor=ft.Colors.BLUE,
+            actions=[
+                ft.IconButton(icon = ft.Icons.HELP_CENTER, on_click=icon_clicked),
+            ]
+        )
+        subtitle1 = ft.Text("YAML形式データ", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        line = ft.Divider(height=2, color="black")
+        outputStr = ft.TextField(multiline=True, value=yamlData)
+        cl = ft.Column(spacing=10, height=200, width=750, scroll=ft.ScrollMode.ALWAYS, on_scroll_interval=0, expand=True)
+        cl.controls.append(outputStr)
+        subtitle2 = ft.Text("アクチュエータコマンド定義", style=ft.TextThemeStyle.TITLE_MEDIUM)
+
+        actuator_id = ft.TextField(label="Actuator ID", value = command['id'])
+        actuator_time = ft.TextField(label="Time", value = command['time'])
+
+        actuator_command = ft.Dropdown(
+            label="dummy",
+            on_change=commandChange,
+            options=[
+                ft.dropdown.Option(text = "dummy", key = 101),
+            ],
+            autofocus=True,)
+        if actuatorSelection == 101:
+            actuator_command.options = character_display_Grove_RGB_backlight_command
+            actuator_command.label = character_display_Grove_RGB_backlight_command_label
+        elif (actuatorSelection==102) or (actuatorSelection==103):
+            actuator_command.options = character_display_command
+            actuator_command.label = character_display_command_label
+        elif actuatorSelection == 201:
+            actuator_command.options = mono_led_single_command
+            actuator_command.label = mono_led_single_command_label
+        elif actuatorSelection == 202:
+            actuator_command.options = mono_led_chain_command
+            actuator_command.label = mono_led_chain_command_label
+        elif actuatorSelection == 203:
+            actuator_command.options = rgb_led_single_command
+            actuator_command.label = rgb_led_single_command_label
+        elif actuatorSelection == 204:
+            actuator_command.options = rgb_led_chain_command
+            actuator_command.label = rgb_led_chain_command_label
+        elif (actuatorSelection > 300) and (actuatorSelection < 304):
+            actuator_command.options = nseg_led_command
+            actuator_command.label = nseg_led_command_label
+        elif actuatorSelection == 304:
+            actuator_command.options = nseg_led_grove_command
+            actuator_command.label = nseg_led_grove_command_label
+        elif actuatorSelection == 401:
+            actuator_command.options = switch_simple_command
+            actuator_command.label = switch_simple_command_label
+        elif actuatorSelection == 501:
+            actuator_command.options = servo_command
+            actuator_command.label = servo_command_label
+        elif actuatorSelection == 601:
+            actuator_command.options = sound_simple_command
+            actuator_command.label = sound_simple_command_label
+        elif actuatorSelection == 701:
+            actuator_command.options = pmw_command
+            actuator_command.label = pmw_command_label
+        elif actuatorSelection == 801:
+            actuator_command.options = irda_command
+            actuator_command.label = irda_command_label
+        elif (actuatorSelection > 900) and (actuatorSelection < 905):
+            actuator_command.options = mp3_command
+            actuator_command.label = mp3_command_label
+        elif (actuatorSelection > 1000) and (actuatorSelection < 1005):
+            actuator_command.options = graphic_display_command
+            actuator_command.label = graphic_display_command_label
+        actuator_command.value = defaultCommandNumber(actuatorSelection)
+        num_of_params = ft.TextField(label="number of parameters", value = command['paramSize'])
+        params = ft.TextField(multiline=True, label="parameters", value = str(command['param']))
+        [num_of_params.value, params.value] = defaultCommandParam(actuatorSelection, defaultCommandNumber(actuatorSelection))
+        subtitle3 = ft.Text("オプションパラメータ", style=ft.TextThemeStyle.TITLE_MEDIUM)
+        next_button = ft.ElevatedButton(text="Next", on_click=next_button_clicked)
+        finish_button = ft.ElevatedButton(text="Close", on_click=lambda e: page.window.destroy())
+        return ft.View("/view3", [
+            appBar,
+            subtitle1,
+            cl,
+            line,
+            subtitle2,
+            actuator_id,
+            actuator_time,
+            actuator_command,
+            line,
+            subtitle3,
+            num_of_params,
+            params,
+            next_button,
             finish_button
         ])
 
     def route_change(handler):
-        global configuration, lastView
+        global lastView
         troute = ft.TemplateRoute(handler.route)
         page.views.clear()
         if troute.match("/view0"):
@@ -518,11 +781,18 @@ def mainWindow(page: ft.Page):
         if troute.match("/view1"):
             lastView="/view1"
             page.views.append(create_view1())
+        if troute.match("/view2"):
+            lastView="/view2"
+            page.views.append(create_view2())
+        if troute.match("/view3"):
+            lastView="/view3"
+            page.views.append(create_view3())
         page.update()
 
+    page.window.width = 800
+    page.window.height = 600
     page.on_route_change = route_change
     page.go("/view0")
-
 
 if __name__ == '__main__':
     error = loadHelp(help_file)
