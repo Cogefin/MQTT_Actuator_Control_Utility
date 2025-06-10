@@ -8,7 +8,7 @@ sequence:
   - class : 'command'
     id: 0
     type: 101
-    time: 234567890
+    time: 0
     command: 4
     paramSize: 1
     param: [
