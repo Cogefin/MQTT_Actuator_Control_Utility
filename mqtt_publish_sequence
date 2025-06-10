@@ -10,6 +10,7 @@ import yaml
 import random
 import time
 
+
 help_file="Help/mqtt_publish_sequence.yaml"
 
 helpPageName = 'top'
@@ -176,6 +177,8 @@ def mainWindow(page: ft.Page):
                     sendData['time'] = sequence[i]['time']
                     sendData['command'] = sequence[i]['command']
                     sendData['paramSize'] = sequence[i]['paramSize']
+                    if 0==int(sendData['time']):
+                        sendData['time'] = str(int(time.time()))
                     if 0!=sendData['paramSize']:
                         sendData['param'] = sequence[i]['param']
                     commandStr = json.dumps(sendData)
