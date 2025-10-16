@@ -6,13 +6,13 @@ mqtt:
 
 sequence:
   - class : 'command'
-    id: 2
+    id: 0
     type: 304
     time: 234567890
     command: 1
     paramSize: 0
   - class : 'command'
-    id: 2
+    id: 0
     type: 304
     time: 234567890
     command: 3
@@ -25,7 +25,7 @@ sequence:
   - class : 'wait'
     value : 5
   - class : 'command'
-    id: 2
+    id: 0
     type: 304
     time: 234567890
     command: 5
@@ -38,7 +38,7 @@ sequence:
   - class : 'wait'
     value : 5
   - class : 'command'
-    id: 2
+    id: 0
     type: 304
     time: 234567890
     command: 3
@@ -49,7 +49,7 @@ sequence:
       }
     ]
   - class : 'command'
-    id: 2
+    id: 0
     type: 304
     time: 234567890
     command: 5
@@ -62,13 +62,13 @@ sequence:
   - class : 'wait'
     value : 5
   - class : 'command'
-    id: 2
+    id: 0
     type: 304
     time: 234567890
     command: 1
     paramSize: 0
   - class : 'command'
-    id: 2
+    id: 0
     type: 304
     time: 234567890
     command: 3

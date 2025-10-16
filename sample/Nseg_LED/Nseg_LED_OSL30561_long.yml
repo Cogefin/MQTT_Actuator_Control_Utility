@@ -7,625 +7,632 @@ mqtt:
 sequence:
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 10
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 303
+    time: 234567890
+    command: 4
     paramSize: 1
     param: [
       {
-        header: 0,
-        data: 1,
-        repeats: 5,
-        bits: 8
+        text: '1  ',
+        period: 1
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 11
+    command: 4
     paramSize: 1
     param: [
       {
-        header: 0,
-        data: 1,
-        repeats: 5,
-        bits: 8
+        text: ' 1 ',
+        period: 2
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 20
+    command: 4
     paramSize: 1
     param: [
       {
-        command: 1,
-        repeats: 5
+        text: '11 ',
+        period: 3
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 30
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '  1',
+        period: 4
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 31
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        flag: 0
+        text: '1 1',
+        period: 5
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 40
+    command: 4
     paramSize: 1
     param: [
       {
-        command: 255,
-        repeats: 5
+        text: ' 11',
+        period: 6
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 50
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 1,
-        command: 1,
-        repeats: 5
+        text: '111',
+        period: 7
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 60
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        vendor: 65535
+        text: '---',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 61
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '000',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 62
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '111',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 63
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '222',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 64
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '333',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 70
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '444',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 71
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '555',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '666',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '777',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '888',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '999',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: 'aaa',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'bbb',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'ccc',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'ddd',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'eee',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'fff',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 100
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '-  ',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 101
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: ' - ',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 102
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '0 -',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 110
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        flag: 0
+        text: '10 ',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 113
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        flag: 0
+        text: '210',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 114
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        customer: 4095,
-        flag: 0
+        text: '321',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 120
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '432',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 121
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '543',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 122
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '654',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 130
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        bits: 12
+        text: '765',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: '876',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: '987',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'a98',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'ba9',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'cba',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 141
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 284307700,
-        repeats: 5
+        text: 'dcb',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 103
+    command: 4
     paramSize: 1
     param: [
       {
-        did: 0,
-        command: 1,
-        repeats: 5
+        text: 'edc',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 303
     time: 234567890
-    command: 160
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'fed',
+        period: 0
       }
     ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 303
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: ' fe',
+        period: 0
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 303
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '  f',
+        period: 0
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 303
+    time: 234567890
+    command: 1
+    paramSize: 0
+

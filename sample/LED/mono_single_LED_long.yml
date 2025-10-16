@@ -7,7 +7,7 @@ mqtt:
 sequence:
   - class : 'command'
     id: 0
-    type: 203
+    type: 201
     time: 234567890
     command: 1
     paramSize: 0
@@ -15,114 +15,74 @@ sequence:
     value : 5
   - class : 'command'
     id: 0
-    type: 203
+    type: 201
     time: 123456789
-    command: 4
+    command: 2
     paramSize: 1
     param: [
       {
-        red: 255,
-        green: 0,
-        blue: 0
+        brightness: 0.2
       }
     ]
   - class : 'wait'
     value : 5
   - class : 'command'
     id: 0
-    type: 203
+    type: 201
     time: 123456789
-    command: 4
+    command: 2
     paramSize: 1
     param: [
       {
-        red: 0,
-        green: 255,
-        blue: 0
+        brightness: 0.4
       }
     ]
   - class : 'wait'
     value : 5
   - class : 'command'
     id: 0
-    type: 203
+    type: 201
     time: 123456789
-    command: 4
+    command: 2
     paramSize: 1
     param: [
       {
-        red: 0,
-        green: 0,
-        blue: 255
+        brightness: 0.6
       }
     ]
   - class : 'wait'
     value : 5
   - class : 'command'
     id: 0
-    type: 203
+    type: 201
     time: 123456789
-    command: 4
+    command: 2
     paramSize: 1
     param: [
       {
-        red: 0,
-        green: 255,
-        blue: 255
+        brightness: 0.8
       }
     ]
   - class : 'wait'
     value : 5
   - class : 'command'
     id: 0
-    type: 203
+    type: 201
     time: 123456789
-    command: 4
+    command: 2
     paramSize: 1
     param: [
       {
-        red: 255,
-        green: 0,
-        blue: 255
+        brightness: 1.0
       }
     ]
   - class : 'wait'
     value : 5
   - class : 'command'
     id: 0
-    type: 203
-    time: 123456789
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        red: 255,
-        green: 255,
-        blue: 0
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 203
-    time: 123456789
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        red: 255,
-        green: 255,
-        blue: 255
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 203
+    type: 201
     time: 234567890
     command: 1
     paramSize: 0
-  - class : 'wait'
-    value : 5
+
+

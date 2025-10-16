@@ -6,7 +6,7 @@ mqtt:
 
 sequence:
   - class : 'command'
-    id: 5
+    id: 0
     type: 201
     time: 234567890
     command: 1
@@ -14,7 +14,7 @@ sequence:
   - class : 'wait'
     value : 5
   - class : 'command'
-    id: 5
+    id: 0
     type: 201
     time: 123456789
     command: 2
@@ -25,9 +25,9 @@ sequence:
       }
     ]
   - class : 'wait'
-    value : 5
+    value : 10
   - class : 'command'
-    id: 5
+    id: 0
     type: 201
     time: 234567890
     command: 1

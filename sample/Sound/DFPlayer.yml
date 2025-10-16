@@ -7,27 +7,21 @@ mqtt:
 sequence:
   - class : 'command'
     id: 0
-    type: 903
+    type: 904
     time: 234567890
     command: 1
     paramSize: 0
   - class : 'command'
     id: 0
-    type: 903
+    type: 904
     time: 234567890
-    command: 10
-    paramSize: 1
-    param: [
-      {
-        index: 1,
-        mode: 0
-      }
-    ]
+    command: 9
+    paramSize: 0
   - class : 'wait'
     value : 20
   - class : 'command'
     id: 0
-    type: 903
+    type: 904
     time: 234567890
     command: 2
     paramSize: 0
@@ -35,7 +29,7 @@ sequence:
     value : 20
   - class : 'command'
     id: 0
-    type: 903
+    type: 904
     time: 234567890
     command: 2
     paramSize: 0
@@ -43,7 +37,7 @@ sequence:
     value : 20
   - class : 'command'
     id: 0
-    type: 903
+    type: 904
     time: 234567890
     command: 3
     paramSize: 0
@@ -51,7 +45,7 @@ sequence:
     value : 20
   - class : 'command'
     id: 0
-    type: 903
+    type: 904
     time: 234567890
     command: 1
     paramSize: 0

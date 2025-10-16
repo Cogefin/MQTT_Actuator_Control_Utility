@@ -1,0 +1,1586 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        x: 0,
+        y: 0
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'hello, world!'
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        x: 0,
+        y: 1
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '1  3'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 1
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 2
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'default'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 4
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'blink'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 6
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'cursor'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 5
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'no cursor'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 3
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'no blink'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '0123456789abcdef'
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        x: 0,
+        y: 1
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '0123456789abcdef'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 7
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 7
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 7
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 7
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 7
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 7
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 8
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 8
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 8
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 8
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 8
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 8
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        x: 6,
+        y: 0
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 10
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'Hello'
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        x: 6,
+        y: 1
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 9
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'Hello'
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'No auto scroll'
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 12
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        x: 0,
+        y: 1
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '0'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '1'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '2'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '3'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '4'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '5'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '6'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '7'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '8'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '9'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'a'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'b'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'c'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'd'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'e'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'f'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'g'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'h'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'i'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'j'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'k'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'l'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'm'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'n'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'o'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'p'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'q'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'r'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 's'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 't'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'u'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'v'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'w'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'x'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'y'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'z'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'Auto scroll'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        x: 0,
+        y: 1
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '0'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '1'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '2'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '3'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '4'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '5'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '6'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '7'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '8'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: '9'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'a'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'b'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'c'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'd'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'e'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'f'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        mode: 11
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'g'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'h'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'i'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'j'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'k'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'l'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'm'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'n'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'o'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'p'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'q'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'r'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 's'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 't'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'u'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'v'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'w'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'x'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'y'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 6
+    paramSize: 1
+    param: [
+      {
+        text: 'z'
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 103
+    time: 234567890
+    command: 2
+    paramSize: 0

@@ -142,8 +142,8 @@ sequence:
     paramSize: 1
     param: [
       {
-        x: 16,
-        y: 1
+        x: 20,
+        y: 4
       }
     ]
   - class : 'command'

@@ -1,0 +1,407 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 10
+    paramSize: 1
+    param: [
+      {
+        index: 1,
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        vol: 10
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 8
+    paramSize: 0
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 9
+    paramSize: 0
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 10
+    paramSize: 1
+    param: [
+      {
+        index: 1,
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        vol: 10
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 2
+    paramSize: 0
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 3
+    paramSize: 0
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 10
+    paramSize: 1
+    param: [
+      {
+        index: 1,
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        vol: 10
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 6
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 6
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 6
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 6
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 6
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 5
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 5
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 5
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 5
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 5
+    paramSize: 0
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 12
+    paramSize: 1
+    param: [
+      {
+        num: 4,
+        file: 1,
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        vol: 10
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 12
+    paramSize: 1
+    param: [
+      {
+        num: 5,
+        file: 1,
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 13
+    paramSize: 1
+    param: [
+      {
+        name: "4",
+        file: 1,
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        vol: 10
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 10
+    paramSize: 1
+    param: [
+      {
+        index: 1,
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        vol: 10
+      }
+    ]
+  - class : 'wait'
+    value : 20
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 16
+    paramSize: 1
+    param: [
+      {
+        storage: 1,
+        index: 2
+      }
+    ]
+  - class : 'wait'
+    value : 360
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 11
+    paramSize: 1
+    param: [
+      {
+        name: "1.mp3",
+        mode: 4
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        vol: 10
+      }
+    ]
+  - class : 'wait'
+    value : 10
+  - class : 'command'
+    id: 0
+    type: 903
+    time: 234567890
+    command: 1
+    paramSize: 0

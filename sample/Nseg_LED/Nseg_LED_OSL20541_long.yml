@@ -7,625 +7,650 @@ mqtt:
 sequence:
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 10
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 302
+    time: 234567890
+    command: 4
     paramSize: 1
     param: [
       {
-        header: 0,
-        data: 1,
-        repeats: 5,
-        bits: 8
+        text: '  ',
+        period: 1
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 11
+    command: 4
     paramSize: 1
     param: [
       {
-        header: 0,
-        data: 1,
-        repeats: 5,
-        bits: 8
+        text: '  ',
+        period: 2
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 20
+    command: 4
     paramSize: 1
     param: [
       {
-        command: 1,
-        repeats: 5
+        text: '  ',
+        period: 3
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 30
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '0 ',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 31
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        flag: 0
+        text: '1 ',
+        period: 1
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 40
+    command: 4
     paramSize: 1
     param: [
       {
-        command: 255,
-        repeats: 5
+        text: ' 1',
+        period: 2
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 50
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 1,
-        command: 1,
-        repeats: 5
+        text: '11',
+        period: 3
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 60
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        vendor: 65535
+        text: '- ',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 61
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '0-',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 62
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '10',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 63
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '21',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 64
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '32',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 70
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '43',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 71
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: '54',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '65',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '76',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '87',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: '98',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 80
+    command: 4
     paramSize: 1
     param: [
       {
-        channel: 15,
-        command: 1,
-        mode: 255,
-        flag: 0
+        text: 'a9',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'ba',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'cb',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'dc',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'ed',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 90
+    command: 4
     paramSize: 1
     param: [
       {
-        wid: 0,
-        magnitude: 1
+        text: 'fe',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 100
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'gf',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 101
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'hg',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 102
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'ih',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 110
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        flag: 0
+        text: 'ji',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 113
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        flag: 0
+        text: 'kj',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 114
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        customer: 4095,
-        flag: 0
+        text: 'lk',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 120
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'ml',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 121
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'nm',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 122
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'on',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 130
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5,
-        bits: 12
+        text: 'po',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'qp',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'rq',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'sr',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'ts',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 140
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 1
+        text: 'ut',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 141
+    command: 4
     paramSize: 1
     param: [
       {
-        data: 284307700,
-        repeats: 5
+        text: 'vu',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 103
+    command: 4
     paramSize: 1
     param: [
       {
-        did: 0,
-        command: 1,
-        repeats: 5
+        text: 'wv',
+        period: 0
       }
     ]
   - class : 'wait'
-    value : 2
+    value : 1
   - class : 'command'
     id: 0
-    type: 801
+    type: 302
     time: 234567890
-    command: 160
+    command: 4
     paramSize: 1
     param: [
       {
-        address: 0,
-        command: 1,
-        repeats: 5
+        text: 'xw',
+        period: 0
       }
     ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 302
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'yx',
+        period: 0
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 302
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'zy',
+        period: 0
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 302
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: ' z',
+        period: 0
+      }
+    ]
+  - class : 'wait'
+    value : 1
+  - class : 'command'
+    id: 0
+    type: 302
+    time: 234567890
+    command: 1
+    paramSize: 0
+
+
+
+
+

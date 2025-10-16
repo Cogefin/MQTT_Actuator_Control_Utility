@@ -7,7 +7,7 @@ mqtt:
 sequence:
   - class : 'command'
     id: 0
-    type: 302
+    type: 305
     time: 234567890
     command: 1
     paramSize: 0
@@ -15,27 +15,13 @@ sequence:
     value : 5
   - class : 'command'
     id: 0
-    type: 302
+    type: 305
     time: 234567890
     command: 4
     paramSize: 1
     param: [
       {
-        text: 'ab',
-        period: 0
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'cd',
+        text: '0       ',
         period: 1
       }
     ]
@@ -43,27 +29,13 @@ sequence:
     value : 5
   - class : 'command'
     id: 0
-    type: 302
+    type: 305
     time: 234567890
     command: 4
     paramSize: 1
     param: [
       {
-        text: 'ef',
-        period: 2
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'gh',
+        text: '10      ',
         period: 3
       }
     ]
@@ -71,13 +43,195 @@ sequence:
     value : 5
   - class : 'command'
     id: 0
-    type: 302
+    type: 305
     time: 234567890
     command: 4
     paramSize: 1
     param: [
       {
-        text: 'ij',
+        text: '210     ',
+        period: 7
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '3210    ',
+        period: 15
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '43210   ',
+        period: 31
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '543210  ',
+        period: 63
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '6543210 ',
+        period: 127
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '76543210',
+        period: 255
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '87654321',
+        period: 254
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: '98765432',
+        period: 252
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'a9876543',
+        period: 248
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'ba987654',
+        period: 240
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'cba98765',
+        period: 224
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'dcba9876',
+        period: 192
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'edcba987',
+        period: 128
+      }
+    ]
+  - class : 'wait'
+    value : 5
+  - class : 'command'
+    id: 0
+    type: 305
+    time: 234567890
+    command: 4
+    paramSize: 1
+    param: [
+      {
+        text: 'fedcba98',
         period: 0
       }
     ]
@@ -85,219 +239,8 @@ sequence:
     value : 5
   - class : 'command'
     id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'kl',
-        period: 1
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'mn',
-        period: 2
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'op',
-        period: 3
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'qr',
-        period: 0
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'st',
-        period: 1
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'uv',
-        period: 2
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'wx',
-        period: 3
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: 'yz',
-        period: 0
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: '01',
-        period: 1
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: '23',
-        period: 2
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: '45',
-        period: 3
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: '67',
-        period: 0
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: '89',
-        period: 1
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: ' 0',
-        period: 2
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
-    time: 234567890
-    command: 4
-    paramSize: 1
-    param: [
-      {
-        text: '1 ',
-        period: 3
-      }
-    ]
-  - class : 'wait'
-    value : 5
-  - class : 'command'
-    id: 0
-    type: 302
+    type: 305
     time: 234567890
     command: 1
     paramSize: 0
-
 

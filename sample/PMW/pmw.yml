@@ -13,7 +13,7 @@ sequence:
     paramSize: 1
     param: [
       {
-        value: 80
+        value: 50
       }
     ]
   - class : 'command'
@@ -32,7 +32,45 @@ sequence:
     paramSize: 1
     param: [
       {
-        value: 160
+        value: 100
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 701
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 701
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        value: 150
+      }
+    ]
+  - class : 'command'
+    id: 0
+    type: 701
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 701
+    time: 234567890
+    command: 3
+    paramSize: 1
+    param: [
+      {
+        value: 200
       }
     ]
   - class : 'command'
