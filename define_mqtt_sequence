@@ -107,12 +107,12 @@ sound_simple_command =[
     ]
 sound_simple_command_label="Speaker/buzzer command"
 
-pmw_command = [
+pwm_command = [
         ft.dropdown.Option(text = "Apply", key = 1),
         ft.dropdown.Option(text = "Off", key = 2),
         ft.dropdown.Option(text = "Set", key = 3),
     ]
-pmw_command_label="PMW command"
+pwm_command_label="PWM command"
 
 irda_command = [
         ft.dropdown.Option(text = "Bang Olufsen", key = 10),
@@ -202,7 +202,7 @@ def selectCommandMenu(type):
     if type == 601:
         return sound_simple_command
     if type == 701:
-        return pmw_command
+        return pwm_command
     if type == 801:
         return irda_command
     if (type > 900) and (type < 905):
@@ -327,7 +327,7 @@ def defaultCommandParamSimpleSound(type, command):
         optionStr = ''
     return [num_of_params, optionStr]
 
-def defaultCommandParamPMW(type, command):
+def defaultCommandParamPWM(type, command):
     if command == 3: # set
         num_of_params = 1
         optionStr = "{ value: 255 }"
@@ -446,7 +446,7 @@ def defaultCommandParam(type, command):
     elif (type > 600) and (type < 700):
         return defaultCommandParamSimpleSound(type, command)
     elif (type > 700) and (type < 800):
-        return defaultCommandParamPMW(type, command)
+        return defaultCommandParamPWM(type, command)
     elif (type > 800) and (type < 900):
         return defaultCommandParamIRDA(type, command)
     elif (type > 900) and (type < 1000):
@@ -534,7 +534,7 @@ def mainWindow(page: ft.Page):
                 ft.dropdown.Option(text = "Simple Digital/Switch", key = 401),
                 ft.dropdown.Option(text = "Servo", key = 501),
                 ft.dropdown.Option(text = "Simple Sound(Speaker/buzzer)", key = 601),
-                ft.dropdown.Option(text = "Simple PMW", key = 701),
+                ft.dropdown.Option(text = "Simple PWM", key = 701),
                 ft.dropdown.Option(text = "IR remote", key = 801),
                 ft.dropdown.Option(text = "Grove - MP3 v2.0", key = 901),
                 ft.dropdown.Option(text = "Grove - MP3 v3.0", key = 902),
@@ -603,7 +603,7 @@ def mainWindow(page: ft.Page):
                 ft.dropdown.Option(text = "Simple Digital/Switch", key = 401),
                 ft.dropdown.Option(text = "Servo", key = 501),
                 ft.dropdown.Option(text = "Simple Sound(Speaker/buzzer)", key = 601),
-                ft.dropdown.Option(text = "Simple PMW", key = 701),
+                ft.dropdown.Option(text = "Simple PWM", key = 701),
                 ft.dropdown.Option(text = "IR remote", key = 801),
                 ft.dropdown.Option(text = "Grove - MP3 v2.0", key = 901),
                 ft.dropdown.Option(text = "Grove - MP3 v3.0", key = 902),
@@ -736,8 +736,8 @@ def mainWindow(page: ft.Page):
             actuator_command.options = sound_simple_command
             actuator_command.label = sound_simple_command_label
         elif actuatorSelection == 701:
-            actuator_command.options = pmw_command
-            actuator_command.label = pmw_command_label
+            actuator_command.options = pwm_command
+            actuator_command.label = pwm_command_label
         elif actuatorSelection == 801:
             actuator_command.options = irda_command
             actuator_command.label = irda_command_label
