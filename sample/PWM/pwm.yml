@@ -106,3 +106,8 @@ sequence:
     time: 234567890
     command: 2
     paramSize: 0
+
+scenario:
+  - 出力を変えながら(5段階)，電圧を出力
+
+

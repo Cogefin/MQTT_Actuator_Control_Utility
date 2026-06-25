@@ -86,3 +86,7 @@ sequence:
     paramSize: 0
 
 
+scenario:
+  - LEDを徐々に明るくした後に消す
+
+

@@ -244,3 +244,7 @@ sequence:
     command: 1
     paramSize: 0
 
+scenario:
+  - 0からfまでを8個のLEDに順次印字(スクロールするイメージ)
+
+

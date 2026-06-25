@@ -725,3 +725,7 @@ sequence:
     time: 234567890
     command: 1
     paramSize: 0
+
+scenario:
+  - 全てのLEDを順番に光らせる
+

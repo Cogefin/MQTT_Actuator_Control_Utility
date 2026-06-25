@@ -411,3 +411,11 @@ sequence:
     time: 234567890
     command: 1
     paramSize: 0
+
+scenario:
+  - 3個のLEDに対してそれぞれ以下の3つを実行
+  - 1. RGBの順番に単色で光らせる
+  - 2. R+G, R+B, G+Bの順で2色混合で光らせる
+  - 3. 3色全部光らせる(白)
+
+

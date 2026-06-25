@@ -3411,3 +3411,9 @@ sequence:
     time: 234567890
     command: 1
     paramSize: 0
+
+scenario:
+  - 反時計回りで，全てのLEDを順番に明るさを変えながら光らせる
+  - 時計回りで上と同じ動作をさせる
+
+

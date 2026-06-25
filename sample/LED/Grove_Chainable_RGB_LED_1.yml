@@ -1,0 +1,189 @@
+
+mqtt:
+  server: '192.168.11.252'
+  port: 1883
+  topic: 'arduino/actuator'
+
+sequence:
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 123456789
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        red: 255,
+        green: 0,
+        blue: 0
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 123456789
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        red: 0,
+        green: 255,
+        blue: 0
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 123456789
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        red: 0,
+        green: 0,
+        blue: 255
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 123456789
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        red: 255,
+        green: 255,
+        blue: 0
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 123456789
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        red: 255,
+        green: 0,
+        blue: 255
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 123456789
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        red: 0,
+        green: 255,
+        blue: 255
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 123456789
+    command: 5
+    paramSize: 1
+    param: [
+      {
+        num: 0,
+        red: 255,
+        green: 255,
+        blue: 255
+      }
+    ]
+  - class : 'wait'
+    value : 3
+  - class : 'command'
+    id: 0
+    type: 204
+    time: 234567890
+    command: 1
+    paramSize: 0
+
+scenario:
+  - 1. RGBの順番に単色で光らせる
+  - 2. R+G, R+B, G+Bの順で2色混合で光らせる
+  - 3. 3色全部光らせる(白)
+
+
+

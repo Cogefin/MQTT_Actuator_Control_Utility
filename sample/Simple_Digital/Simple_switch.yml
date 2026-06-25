@@ -53,3 +53,6 @@ sequence:
     paramSize: 0
   - class : 'wait'
     value : 3
+
+scenario:
+  - ON/OFFを3回繰り返す

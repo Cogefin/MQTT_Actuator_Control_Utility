@@ -22,3 +22,7 @@ sequence:
   - class : 'wait'
     value : 2
 
+
+scenario:
+  - 音階を7段階出力
+

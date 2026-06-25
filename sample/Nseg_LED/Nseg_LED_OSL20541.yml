@@ -300,4 +300,6 @@ sequence:
     command: 1
     paramSize: 0
 
+scenario:
+  - ピリオドを点滅させながら，aからzまでと0から9までと空白を2文字組み合わせで表示
 

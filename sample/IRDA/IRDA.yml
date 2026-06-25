@@ -629,3 +629,7 @@ sequence:
         repeats: 5
       }
     ]
+
+scenario:
+  - Arduino用赤外線リモコンライブラリ(IR-Remote)がサポートしているメーカー別API全部を数回づつ実行 (数秒間隔)
+

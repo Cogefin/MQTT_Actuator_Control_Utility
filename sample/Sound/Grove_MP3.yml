@@ -56,3 +56,10 @@ sequence:
     command: 1
     paramSize: 0
 
+
+scenario:
+  - 音楽再生開始
+  - 次の曲に飛ばす
+  - 次の曲に飛ばす
+  - 前の曲に戻る
+  - 停止

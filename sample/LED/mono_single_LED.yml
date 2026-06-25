@@ -35,3 +35,7 @@ sequence:
   - class : 'wait'
     value : 5
 
+
+scenario:
+  - LEDを付けて消す
+

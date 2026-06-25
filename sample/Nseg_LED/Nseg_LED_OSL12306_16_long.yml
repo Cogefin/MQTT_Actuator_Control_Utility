@@ -552,3 +552,5 @@ sequence:
     command: 1
     paramSize: 0
 
+scenario:
+  - ピリオドを点滅させながら，'-', ' ', '0'から'9','a'から'z'まで印字

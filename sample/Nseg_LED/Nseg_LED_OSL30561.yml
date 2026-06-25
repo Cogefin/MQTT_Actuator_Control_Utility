@@ -132,3 +132,8 @@ sequence:
     command: 1
     paramSize: 0
 
+
+scenario:
+  - ピリオドを点滅させながら，aからfと0から9までに加えて，空白を3文字組み合わせで表示
+
+

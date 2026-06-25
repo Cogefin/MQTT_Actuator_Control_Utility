@@ -76,3 +76,7 @@ sequence:
     command: 1
     paramSize: 0
 
+scenario:
+  - ピリオドを点滅させながら，'a'から'd'まで印字
+
+

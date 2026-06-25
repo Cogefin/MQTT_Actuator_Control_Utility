@@ -126,3 +126,9 @@ sequence:
     paramSize: 0
   - class : 'wait'
     value : 5
+
+scenario:
+  - 1. RGBの順で色を変えながら点灯
+  - 2. 2色混色で点灯
+  - 3. 3色混合(色)で点灯
+

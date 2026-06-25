@@ -50,3 +50,9 @@ sequence:
         text: 'Hello, World!'
       }
     ]
+
+scenario:
+  - 背景を灰色に塗る
+  - SDに保存されているパンダの画像を表示
+  - 「Hello, World!」を印字
+

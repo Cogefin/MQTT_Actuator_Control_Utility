@@ -304,3 +304,9 @@ sequence:
     time: 234567890
     command: 1
     paramSize: 0
+
+
+scenario:
+  - 1. "hello, world!"を印字
+  - 2. 1, 10, 100と桁を増やす
+  - 3. 1から9まで印字

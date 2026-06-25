@@ -35,3 +35,7 @@ sequence:
         text: 'Hello, Kitty!'
       }
     ]
+
+scenario:
+  - 背景を灰色に塗る
+  - 「Hello, Kitty!」を印字

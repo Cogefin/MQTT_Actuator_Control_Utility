@@ -1188,3 +1188,10 @@ sequence:
     command: 1
     paramSize: 0
 
+
+scenario:
+  - 全てのLEDに対して以下の3つを実施
+  - 1. RGBの順で色を変えながら点灯
+  - 2. 2色混色で点灯
+  - 3. 3色混合(色)で点灯
+

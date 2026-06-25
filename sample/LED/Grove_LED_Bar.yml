@@ -333,3 +333,9 @@ sequence:
     time: 234567890
     command: 1
     paramSize: 0
+
+scenario:
+  - 1. 正方向で順番にLEDを点灯
+  - 2. 逆方向で順番にLEDを点灯
+
+
